@@ -552,3 +552,61 @@
 
   window.requestAnimationFrame(animateHero);
 })();
+
+/* ==========================================================================
+   9. Scroll-Driven Lateral Parallax for Selected Works Cards
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  var prefersReduced =
+    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  var sideCards = Array.prototype.slice.call(document.querySelectorAll('[data-side-parallax]'));
+  if (!sideCards.length) return;
+
+  var sideTicking = false;
+
+  function updateSideParallax() {
+    sideTicking = false;
+    var isDesktop = window.innerWidth >= 820;
+    var vh = window.innerHeight || 800;
+
+    for (var i = 0; i < sideCards.length; i++) {
+      var card = sideCards[i];
+      if (!isDesktop) {
+        card.style.transform = '';
+        continue;
+      }
+      var dir = card.getAttribute('data-side-parallax') === 'left' ? -1 : 1;
+      var rect = card.getBoundingClientRect();
+      // Progress goes 0 (entering bottom at 96% vh) -> 1 (settled at 42% vh)
+      var startY = vh * 0.96;
+      var endY = vh * 0.42;
+      var raw = (startY - rect.top) / (startY - endY);
+      var progress = Math.max(0, Math.min(1, raw));
+      var remaining = Math.pow(1 - progress, 2);
+      var tx = dir * remaining * 120;
+      var rot = dir * remaining * 3.2;
+
+      if (remaining < 0.002) {
+        card.style.transform = 'translate3d(0, 0, 0)';
+      } else {
+        card.style.transform =
+          'translate3d(' + tx.toFixed(1) + 'px, 0, 0) rotate(' + rot.toFixed(2) + 'deg)';
+      }
+    }
+  }
+
+  function requestSideUpdate() {
+    if (!sideTicking) {
+      sideTicking = true;
+      window.requestAnimationFrame(updateSideParallax);
+    }
+  }
+
+  updateSideParallax();
+  window.addEventListener('scroll', requestSideUpdate, { passive: true });
+  window.addEventListener('resize', requestSideUpdate, { passive: true });
+})();

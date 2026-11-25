@@ -162,7 +162,7 @@ get_header();
 						}
 					}
 					?>
-					<a class="work-card work-card-clip" href="<?php echo esc_url( get_permalink( $work ) ); ?>">
+					<a class="work-card work-card-clip" data-side-parallax="<?php echo 0 === ( $idx % 2 ) ? 'left' : 'right'; ?>" href="<?php echo esc_url( get_permalink( $work ) ); ?>">
 						<div class="work-card-media">
 							<?php if ( $thumb_url ) : ?>
 								<img src="<?php echo esc_url( $thumb_url ); ?>" alt="<?php echo esc_attr( get_the_title( $work ) ); ?>" loading="lazy">
