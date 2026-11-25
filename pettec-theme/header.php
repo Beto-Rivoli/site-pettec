@@ -16,6 +16,7 @@ $pettec_nav_items = array(
 	array( 'label' => 'Listas', 'url' => home_url( '/listas-de-exercicio/' ) ),
 	array( 'label' => 'Documentos', 'url' => home_url( '/documentos/' ) ),
 	array( 'label' => 'Membros', 'url' => home_url( '/membros/' ) ),
+	array( 'label' => 'Depoimentos', 'url' => home_url( '/depoimentos/' ) ),
 	array( 'label' => 'Blog', 'url' => home_url( '/blog/' ) ),
 );
 ?>
@@ -28,6 +29,13 @@ $pettec_nav_items = array(
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+
+<!-- Extrafazant-style Full-Screen Page Transition Curtain -->
+<div id="pettec-page-transition" class="page-transition is-entering" aria-hidden="true">
+	<div class="page-transition__brand">
+		<img src="<?php echo esc_url( pettec_get_logo_url() ); ?>" alt="">
+	</div>
+</div>
 
 <header class="site-header" role="banner">
 	<div class="container header-inner">

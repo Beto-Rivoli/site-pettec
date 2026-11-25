@@ -1,6 +1,6 @@
 <?php
 /**
- * Reusable circular portrait card for Membros e Ex-membros (pettec_membro).
+ * Reusable kinetic circular portrait card for Membros e Ex-membros (pettec_membro).
  *
  * @package PETTEC
  */
@@ -19,7 +19,8 @@ $pettec_github   = pettec_clean_external_url( (string) get_post_meta( get_the_ID
 
 $pettec_name     = get_the_title();
 $pettec_words    = preg_split( '/\s+/', trim( $pettec_name ) );
-$pettec_initials = strtoupper( mb_substr( $pettec_words[0] ?? 'P', 0, 1 ) . mb_substr( $pettec_words[ count( $pettec_words ) - 1 ] ?? '', 0, 1 ) );
+$pettec_initials = mb_strtoupper( mb_substr( $pettec_words[0] ?? 'P', 0, 1 ) . mb_substr( $pettec_words[ count( $pettec_words ) - 1 ] ?? '', 0, 1 ) );
+$pettec_delay    = ( ( get_the_ID() % 6 ) * 0.45 ) . 's';
 
 $pettec_papel_labels = array(
 	'tutor'     => 'Tutor(a)',
@@ -27,7 +28,12 @@ $pettec_papel_labels = array(
 	'ex-membro' => 'Ex-membro',
 );
 ?>
-<article class="member-card reveal" data-filter-item data-papel="<?php echo esc_attr( $pettec_papel ); ?>">
+<article
+	class="member-card member-card--kinetic reveal"
+	data-tilt-card
+	data-filter-item
+	data-papel="<?php echo esc_attr( $pettec_papel ); ?>"
+	style="--float-delay: <?php echo esc_attr( $pettec_delay ); ?>;">
 	<div class="portrait-circle">
 		<?php if ( has_post_thumbnail() ) : ?>
 			<?php the_post_thumbnail( 'medium', array( 'loading' => 'lazy' ) ); ?>

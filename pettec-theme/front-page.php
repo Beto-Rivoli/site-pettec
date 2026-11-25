@@ -1,6 +1,6 @@
 <?php
 /**
- * Front Page — Alternating dark/light parallax homepage (Harbour.Space + Extrafazant).
+ * Front Page — Harbour.Space + Extrafazant + Two26 Selected Works & Stacked Testimonials + Onlines Kinetic Team.
  *
  * @package PETTEC
  */
@@ -99,69 +99,113 @@ get_header();
 	</div>
 </section>
 
-<!-- 3. ATIVIDADES & MINI CURSOS EM DESTAQUE (Dark + Parallax) -->
+<!-- 3. FEATURED PROJECTS & SELECTED WORKS (Two26 Studio style — Mini Cursos & Atividades) -->
 <section class="band band--dark band--hex-grid">
 	<div class="container">
-		<div class="section-head reveal">
-			<div>
-				<span class="eyebrow">Projetos &amp; Capacitação</span>
-				<h2 class="display-mixed display-mixed--lg">
-					MINI CURSOS <em>&amp; Atividades</em>
-				</h2>
-			</div>
-			<div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-				<a class="btn-outline" href="<?php echo esc_url( home_url( '/mini-cursos/' ) ); ?>">Todos os Mini Cursos</a>
-				<a class="btn-outline" href="<?php echo esc_url( home_url( '/atividades/' ) ); ?>">Todas as Atividades</a>
-			</div>
+		<div class="section-head reveal" style="justify-content: center; text-align: center; flex-direction: column; align-items: center;">
+			<span class="eyebrow">Projetos em Destaque</span>
+			<h2 class="display-mixed display-mixed--xl">
+				SELECTED WORKS <em>Mini Cursos &amp; Atividades</em>
+			</h2>
 		</div>
 
 		<?php
-		$pettec_featured_courses = new WP_Query(
+		$pettec_selected_courses = get_posts(
 			array(
 				'post_type'      => 'pettec_minicurso',
-				'posts_per_page' => 3,
+				'post_status'    => 'publish',
+				'posts_per_page' => 4,
 			)
 		);
-		if ( $pettec_featured_courses->have_posts() ) :
+		$pettec_selected_atividades = get_posts(
+			array(
+				'post_type'      => 'pettec_atividade',
+				'post_status'    => 'publish',
+				'posts_per_page' => 2,
+			)
+		);
+		$pettec_works = array_merge( $pettec_selected_courses, $pettec_selected_atividades );
+		if ( ! empty( $pettec_works ) ) :
 			?>
-			<div class="grid grid--3" data-parallax-speed="-0.05">
-				<?php
-				while ( $pettec_featured_courses->have_posts() ) :
-					$pettec_featured_courses->the_post();
-					get_template_part( 'template-parts/card-minicurso', null, array( 'dark' => true ) );
-				endwhile;
-				wp_reset_postdata();
-				?>
+			<div class="work-grid">
+				<?php foreach ( $pettec_works as $idx => $work ) : ?>
+					<?php
+					$is_course = 'pettec_minicurso' === $work->post_type;
+					$badge     = $is_course ? 'MC' : 'AT';
+					$category  = $is_course ? 'Mini Curso • YouTube & Materiais' : 'Atividade • PETTEC UNIFEI';
+					$thumb_url = get_the_post_thumbnail_url( $work, 'large' );
+					if ( ! $thumb_url && $is_course ) {
+						$aulas = pettec_get_repeater_meta( (int) $work->ID, '_pettec_aulas' );
+						if ( ! empty( $aulas[0]['url'] ) ) {
+							$parsed = pettec_parse_youtube_url( (string) $aulas[0]['url'] );
+							if ( $parsed && 'video' === $parsed['type'] ) {
+								$thumb_url = 'https://i.ytimg.com/vi/' . rawurlencode( $parsed['id'] ) . '/hqdefault.jpg';
+							}
+						}
+					}
+					?>
+					<a class="work-card work-card-clip" href="<?php echo esc_url( get_permalink( $work ) ); ?>">
+						<div class="work-card-media">
+							<?php if ( $thumb_url ) : ?>
+								<img src="<?php echo esc_url( $thumb_url ); ?>" alt="<?php echo esc_attr( get_the_title( $work ) ); ?>" loading="lazy">
+							<?php else : ?>
+								<div class="work-card-placeholder">
+									<span class="tag" style="align-self: flex-start; margin-bottom: 0.75rem;"><?php echo esc_html( $is_course ? 'Mini Curso' : 'Atividade' ); ?></span>
+									<span class="display-mixed display-mixed--md" style="color: #fff;"><?php echo esc_html( get_the_title( $work ) ); ?></span>
+								</div>
+							<?php endif; ?>
+							<svg class="work-card-svg-accent" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+								<path d="M 18 282 Q 110 210 205 245 T 382 18" />
+							</svg>
+						</div>
+						<div class="work-card-footer">
+							<div class="work-card-id">
+								<span class="work-badge" aria-hidden="true"><?php echo esc_html( $badge ); ?></span>
+								<div>
+									<h3 class="work-card-title"><?php echo esc_html( get_the_title( $work ) ); ?></h3>
+									<span class="work-card-cat"><?php echo esc_html( $category ); ?></span>
+								</div>
+							</div>
+							<span class="work-arrow" aria-hidden="true">&nearr;</span>
+						</div>
+					</a>
+				<?php endforeach; ?>
 			</div>
 		<?php endif; ?>
 
-		<?php
-		$pettec_featured_atividades = new WP_Query(
-			array(
-				'post_type'      => 'pettec_atividade',
-				'posts_per_page' => 3,
-			)
-		);
-		if ( $pettec_featured_atividades->have_posts() ) :
-			?>
-			<div style="margin-top: 3rem;">
-				<h3 class="display-mixed display-mixed--md" style="margin-bottom: 1.5rem;">ATIVIDADES <em>recentes</em></h3>
-				<div class="grid grid--3">
-					<?php
-					while ( $pettec_featured_atividades->have_posts() ) :
-						$pettec_featured_atividades->the_post();
-						get_template_part( 'template-parts/card-atividade', null, array( 'dark' => true ) );
-					endwhile;
-					wp_reset_postdata();
-					?>
-				</div>
+		<div class="works-outro reveal">
+			<h3 class="display-mixed display-mixed--lg">
+				TEM MUITO MAIS <em>para explorar</em>
+			</h3>
+			<div class="works-outro-pills" aria-hidden="true">
+				<span>100% Gratuito</span>
+				<span>Ensino, Pesquisa &amp; Extensão</span>
+				<span>Materiais &amp; Listas</span>
 			</div>
-		<?php endif; ?>
+			<div style="display: flex; justify-content: center; gap: 0.85rem; flex-wrap: wrap;">
+				<a class="btn-primary" href="<?php echo esc_url( home_url( '/mini-cursos/' ) ); ?>">Ver todos os Mini Cursos &nearr;</a>
+				<a class="btn-outline" href="<?php echo esc_url( home_url( '/atividades/' ) ); ?>">Ver todas as Atividades &nearr;</a>
+			</div>
+		</div>
 	</div>
 </section>
 
-<!-- 4. BLOG & ACESSO RÁPIDO A EDITAIS/DOCUMENTOS (Light) -->
+<!-- 4. DEPOIMENTOS — FALAS DOS ANTIGOS PETIANOS (Two26 Studio Interactive Stacked Deck) -->
 <section class="band band--light">
+	<div class="container">
+		<div class="section-head reveal" style="justify-content: center; text-align: center; flex-direction: column; align-items: center;">
+			<span class="eyebrow">Depoimentos</span>
+			<h2 class="display-mixed display-mixed--lg">
+				FALAS DOS <em>Antigos Petianos</em>
+			</h2>
+		</div>
+
+		<?php get_template_part( 'template-parts/testimonials-deck' ); ?>
+	</div>
+</section>
+
+<!-- 5. BLOG & ACESSO RÁPIDO A EDITAIS/DOCUMENTOS (White) -->
+<section class="band band--white">
 	<div class="container">
 		<div class="grid grid--2" style="align-items: start; gap: 3rem;">
 			<div>
@@ -239,13 +283,23 @@ get_header();
 	</div>
 </section>
 
-<!-- 5. PRÉVIA DA EQUIPE (Dark + Circular Portraits + Parallax) -->
-<section class="band band--dark">
+<!-- 6. PRÉVIA DA EQUIPE (Dark + Onlines Cell Matrix + Kinetic Tilt Cards) -->
+<section class="band band--dark cell-matrix-wrap">
+	<div class="cell-matrix" aria-hidden="true"></div>
 	<div class="container">
 		<div class="section-head reveal">
 			<div>
 				<span class="eyebrow">Quem faz acontecer</span>
-				<h2 class="display-mixed display-mixed--lg">NOSSA <em>Equipe</em></h2>
+				<h2 class="display-mixed display-mixed--lg">
+					NOSSA
+					<span class="selection-box">
+						<span class="selection-handle selection-handle--tl" aria-hidden="true"></span>
+						<span class="selection-handle selection-handle--tr" aria-hidden="true"></span>
+						<span class="selection-handle selection-handle--bl" aria-hidden="true"></span>
+						<span class="selection-handle selection-handle--br" aria-hidden="true"></span>
+						<em>Equipe</em>
+					</span>
+				</h2>
 			</div>
 			<a class="btn-outline" href="<?php echo esc_url( home_url( '/membros/' ) ); ?>">Ver todos os membros e ex-membros &rarr;</a>
 		</div>

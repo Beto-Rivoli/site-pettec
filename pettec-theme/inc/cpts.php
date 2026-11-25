@@ -141,6 +141,27 @@ function pettec_register_cpts_and_taxonomies(): void {
 			'supports'     => array( 'title', 'thumbnail', 'excerpt' ),
 		)
 	);
+
+	// 5. Depoimentos (Falas dos antigos petianos).
+	register_post_type(
+		'pettec_depoimento',
+		array(
+			'labels'       => array(
+				'name'          => 'Depoimentos',
+				'singular_name' => 'Depoimento',
+				'add_new_item'  => 'Adicionar Novo Depoimento',
+				'edit_item'     => 'Editar Depoimento',
+				'all_items'     => 'Todos os Depoimentos',
+			),
+			'public'       => true,
+			'has_archive'  => true,
+			'rewrite'      => array( 'slug' => 'depoimentos', 'with_front' => false ),
+			'menu_icon'    => 'dashicons-format-quote',
+			'menu_position'=> 9,
+			'show_in_rest' => true,
+			'supports'     => array( 'title', 'editor', 'thumbnail' ),
+		)
+	);
 }
 add_action( 'init', 'pettec_register_cpts_and_taxonomies' );
 

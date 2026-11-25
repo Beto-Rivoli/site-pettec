@@ -42,6 +42,7 @@ function pettec_add_metaboxes(): void {
 	add_meta_box( 'pettec_minicurso_meta', 'Aulas (YouTube), Materiais e Listas de Exercícios', 'pettec_render_minicurso_metabox', 'pettec_minicurso', 'normal', 'high' );
 	add_meta_box( 'pettec_documento_meta', 'Arquivo PDF e Metadados do Documento', 'pettec_render_documento_metabox', 'pettec_documento', 'normal', 'high' );
 	add_meta_box( 'pettec_membro_meta', 'Informações do Membro / Ex-membro', 'pettec_render_membro_metabox', 'pettec_membro', 'normal', 'high' );
+	add_meta_box( 'pettec_depoimento_meta', 'Destaque e Perfil do Ex-petiano', 'pettec_render_depoimento_metabox', 'pettec_depoimento', 'normal', 'high' );
 }
 add_action( 'add_meta_boxes', 'pettec_add_metaboxes' );
 
@@ -197,6 +198,22 @@ function pettec_render_membro_metabox( WP_Post $post ): void {
 	<?php
 }
 
+function pettec_render_depoimento_metabox( WP_Post $post ): void {
+	wp_nonce_field( 'pettec_save_meta', 'pettec_meta_nonce' );
+	$destaque  = (string) get_post_meta( $post->ID, '_pettec_dep_destaque', true );
+	$subtitulo = (string) get_post_meta( $post->ID, '_pettec_dep_subtitulo', true );
+	?>
+	<p>
+		<label><strong>Frase de destaque (título grande do card):</strong></label><br>
+		<input type="text" name="_pettec_dep_destaque" value="<?php echo esc_attr( $destaque ); ?>" class="widefat" placeholder="Ex.: Uma das melhores experiências da minha graduação na UNIFEI.">
+	</p>
+	<p>
+		<label><strong>Subtítulo / Cargo / Curso (opcional):</strong></label><br>
+		<input type="text" name="_pettec_dep_subtitulo" value="<?php echo esc_attr( $subtitulo ); ?>" class="widefat" placeholder="Ex.: Ex-membro PETTEC • Engenharia de Computação">
+	</p>
+	<?php
+}
+
 /**
  * Save handler for all PETTEC metaboxes with nonce, autosave, and capability checks.
  *
@@ -273,6 +290,11 @@ function pettec_save_metaboxes( int $post_id ): void {
 		update_post_meta( $post_id, '_pettec_membro_linkedin', pettec_clean_external_url( (string) wp_unslash( $_POST['_pettec_membro_linkedin'] ?? '' ) ) );
 		update_post_meta( $post_id, '_pettec_membro_lattes', pettec_clean_external_url( (string) wp_unslash( $_POST['_pettec_membro_lattes'] ?? '' ) ) );
 		update_post_meta( $post_id, '_pettec_membro_github', pettec_clean_external_url( (string) wp_unslash( $_POST['_pettec_membro_github'] ?? '' ) ) );
+	}
+
+	if ( 'pettec_depoimento' === $post_type ) {
+		update_post_meta( $post_id, '_pettec_dep_destaque', sanitize_text_field( wp_unslash( $_POST['_pettec_dep_destaque'] ?? '' ) ) );
+		update_post_meta( $post_id, '_pettec_dep_subtitulo', sanitize_text_field( wp_unslash( $_POST['_pettec_dep_subtitulo'] ?? '' ) ) );
 	}
 }
 add_action( 'save_post', 'pettec_save_metaboxes' );

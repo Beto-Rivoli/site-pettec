@@ -57,6 +57,7 @@ $pettec_github    = function_exists( 'pettec_clean_external_url' ) ? pettec_clea
 				<ul>
 					<li><a href="<?php echo esc_url( home_url( '/documentos/' ) ); ?>">Documentos e Editais</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/membros/' ) ); ?>">Membros e Ex-membros</a></li>
+					<li><a href="<?php echo esc_url( home_url( '/depoimentos/' ) ); ?>">Depoimentos</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>">Blog</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/contato/' ) ); ?>">Contato</a></li>
 				</ul>

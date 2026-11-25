@@ -200,6 +200,44 @@
 		<wp:postmeta><wp:meta_key>_pettec_status</wp:meta_key><wp:meta_value>Em andamento</wp:meta_value></wp:postmeta>
 	</item>
 
+	<!-- DEPOIMENTOS (4 falas reais dos antigos petianos extraídas do site anterior) -->
+	<item>
+		<title>Vinícius Monteglione</title>
+		<wp:post_name>depoimento-vinicius-monteglione</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_depoimento]]></wp:post_type>
+		<content:encoded><![CDATA[<p>Ter participado do PET-TEC durante a graduação foi uma experiência muito enriquecedora. Ser membro não apenas me proporcionou contato com tecnologias relevantes no mercado, como o React Native, mas também me permitiu vivenciar a gratificante experiência de lecionar. Além disso, todos os participantes possuem voz ativa na sugestão e elaboração de projetos, permitindo ao aluno se aprofundar em tópicos de interesse na área da computação.</p>]]></content:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_dep_destaque</wp:meta_key><wp:meta_value>Tecnologias reais de mercado, voz ativa em projetos e a gratificante experiência de lecionar.</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_dep_subtitulo</wp:meta_key><wp:meta_value>Ex-membro PETTEC • UNIFEI</wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title>Leandro Moraes Barbosa</title>
+		<wp:post_name>depoimento-leandro-moraes-barbosa</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_depoimento]]></wp:post_type>
+		<content:encoded><![CDATA[<p>O PET foi uma das minhas melhores experiências da faculdade. Não só pelos projetos realizados, que geraram muito aprendizado, mas também pelo trabalho em equipe e pelo ambiente de colaboração entre os alunos, tanto para realização dos projetos quanto para os estudos das disciplinas do curso.</p>]]></content:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_dep_destaque</wp:meta_key><wp:meta_value>Uma das melhores experiências da faculdade pelo trabalho em equipe e ambiente de colaboração.</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_dep_subtitulo</wp:meta_key><wp:meta_value>Ex-membro PETTEC • UNIFEI</wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title>Leonardo Vieira Franzini</title>
+		<wp:post_name>depoimento-leonardo-vieira-franzini</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_depoimento]]></wp:post_type>
+		<content:encoded><![CDATA[<p>O PET TEC foi uma experiência incrível que tive oportunidade de participar durante a faculdade. O contato mais próximo com os professores tutores e outros alunos enriqueceram muito minha experiência acadêmica. Além do aprendizado individual que obtive, as pesquisas realizadas e apresentadas em conjunto tornam o PET TEC uma experiência única de união de forças entre os alunos, não só para finalizar os projetos e as demandas, mas também para colaborarem entre si nos estudos das disciplinas do curso.</p>]]></content:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_dep_destaque</wp:meta_key><wp:meta_value>Contato próximo com tutores, pesquisas em conjunto e uma união única de forças entre alunos.</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_dep_subtitulo</wp:meta_key><wp:meta_value>Ex-membro PETTEC • UNIFEI</wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title>Enzo Carvalho Silva</title>
+		<wp:post_name>depoimento-enzo-carvalho-silva</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_depoimento]]></wp:post_type>
+		<content:encoded><![CDATA[<p>Participei do PET por 2 anos e, durante esse período, acumulei diversas experiências incríveis para mim. Enquanto participante tive oportunidade de trabalhar em diferentes áreas. Consegui desenvolver diversas habilidades sociais e técnicas enquanto ministrava cursos e desenvolvia diversos projetos que me ajudaram a aprender sobre diversos temas ao redor do meu curso.</p>]]></content:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_dep_destaque</wp:meta_key><wp:meta_value>Dois anos desenvolvendo habilidades técnicas e sociais enquanto ministrava cursos e projetos.</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_dep_subtitulo</wp:meta_key><wp:meta_value>Ex-membro PETTEC • UNIFEI</wp:meta_value></wp:postmeta>
+	</item>
+
 	<!-- POST INAUGURAL DO BLOG -->
 	<item>
 		<title>Bem-vindo ao novo site e Blog do PETTEC — UNIFEI!</title>
