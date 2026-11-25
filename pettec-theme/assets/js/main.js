@@ -464,3 +464,91 @@
 
   window.requestAnimationFrame(tick);
 })();
+
+/* ==========================================================================
+   8. Ambient Wave Motion for Hero Headline ([data-float-headline])
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  var prefersReduced =
+    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  var headlines = document.querySelectorAll('[data-float-headline]');
+  if (!headlines.length) return;
+
+  var floatChars = [];
+
+  function splitElementText(container) {
+    var nodes = Array.prototype.slice.call(container.childNodes);
+    nodes.forEach(function (node) {
+      if (node.nodeType === 3) {
+        var raw = node.nodeValue || '';
+        if (!raw.trim()) return;
+        var frag = document.createDocumentFragment();
+        var tokens = raw.split(/(\s+)/);
+        tokens.forEach(function (tok) {
+          if (!tok) return;
+          if (/^\s+$/.test(tok)) {
+            frag.appendChild(document.createTextNode(' '));
+            return;
+          }
+          var wordSpan = document.createElement('span');
+          wordSpan.className = 'float-word';
+          for (var i = 0; i < tok.length; i++) {
+            var chSpan = document.createElement('span');
+            chSpan.className = 'float-char';
+            chSpan.setAttribute('aria-hidden', 'true');
+            chSpan.textContent = tok.charAt(i);
+            wordSpan.appendChild(chSpan);
+            floatChars.push({
+              el: chSpan,
+              phase: floatChars.length * 0.55,
+              amp: 2.6 + (floatChars.length % 3) * 1.1
+            });
+          }
+          frag.appendChild(wordSpan);
+        });
+        container.replaceChild(frag, node);
+      } else if (node.nodeType === 1) {
+        splitElementText(node);
+      }
+    });
+  }
+
+  headlines.forEach(function (h) {
+    h.setAttribute('aria-label', (h.textContent || '').replace(/\s+/g, ' ').trim());
+    splitElementText(h);
+  });
+
+  if (!floatChars.length) return;
+
+  var heroVisible = true;
+  if ('IntersectionObserver' in window) {
+    var heroIO = new IntersectionObserver(
+      function (entries) {
+        heroVisible = entries[0] && entries[0].isIntersecting;
+      },
+      { threshold: 0.02 }
+    );
+    heroIO.observe(headlines[0]);
+  }
+
+  function animateHero(now) {
+    if (heroVisible) {
+      var t = now * 0.0014;
+      for (var i = 0; i < floatChars.length; i++) {
+        var c = floatChars[i];
+        var x = Math.cos(t * 0.8 + c.phase) * (c.amp * 0.45);
+        var y = Math.sin(t + c.phase) * c.amp;
+        var rot = Math.sin(t * 0.7 + c.phase) * 1.8;
+        c.el.style.transform =
+          'translate3d(' + x.toFixed(1) + 'px, ' + y.toFixed(1) + 'px, 0) rotate(' + rot.toFixed(1) + 'deg)';
+      }
+    }
+    window.requestAnimationFrame(animateHero);
+  }
+
+  window.requestAnimationFrame(animateHero);
+})();

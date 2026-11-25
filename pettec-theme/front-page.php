@@ -21,7 +21,7 @@ get_header();
 					<img src="<?php echo esc_url( PETTEC_THEME_URI . '/assets/images/logo-unifei-neg.png' ); ?>" alt="UNIFEI — Universidade Federal de Itajubá">
 					<span><?php echo esc_html( pettec_get_option( 'hero_eyebrow' ) ); ?></span>
 				</div>
-				<h1 class="display-mixed display-mixed--xl">
+				<h1 class="display-mixed display-mixed--xl" data-float-headline>
 					<?php echo esc_html( pettec_get_option( 'hero_title_sans' ) ); ?>
 					<em><?php echo esc_html( pettec_get_option( 'hero_title_serif' ) ); ?></em>
 				</h1>
