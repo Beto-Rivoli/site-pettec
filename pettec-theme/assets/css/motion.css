@@ -134,6 +134,10 @@
     animation: none !important;
   }
 
+  .testimonials-stage:hover .deck-card[data-pos="0"]:not(.is-throwing) {
+    transform: none !important;
+  }
+
   [data-parallax-speed],
   [data-scroll-rotate],
   [data-tilt-card] {
