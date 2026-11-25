@@ -35,6 +35,9 @@ get_header();
 				endwhile;
 				?>
 			</div>
+			<div style="margin-top: 2.5rem;">
+				<?php the_posts_pagination( array( 'prev_text' => '&larr; Anteriores', 'next_text' => 'Próximos &rarr;' ) ); ?>
+			</div>
 		<?php else : ?>
 			<div class="empty-state">Nenhum mini curso publicado ainda.</div>
 		<?php endif; ?>

@@ -32,6 +32,9 @@ get_header();
 				endwhile;
 				?>
 			</div>
+			<div style="margin-top: 2.5rem;">
+				<?php the_posts_pagination( array( 'prev_text' => '&larr; Anteriores', 'next_text' => 'Próximos &rarr;' ) ); ?>
+			</div>
 		<?php else : ?>
 			<div class="empty-state">Nenhuma publicação encontrada neste arquivo.</div>
 		<?php endif; ?>

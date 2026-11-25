@@ -35,13 +35,25 @@ $pilares = get_terms( array( 'taxonomy' => 'pettec_pilar', 'hide_empty' => false
 			<?php endif; ?>
 		</div>
 
-		<?php if ( have_posts() ) : ?>
+		<?php
+		$all_atividades = new WP_Query(
+			array(
+				'post_type'      => 'pettec_atividade',
+				'post_status'    => 'publish',
+				'posts_per_page' => -1,
+				'orderby'        => 'date',
+				'order'          => 'DESC',
+			)
+		);
+		if ( $all_atividades->have_posts() ) :
+			?>
 			<div class="grid grid--3">
 				<?php
-				while ( have_posts() ) :
-					the_post();
+				while ( $all_atividades->have_posts() ) :
+					$all_atividades->the_post();
 					get_template_part( 'template-parts/card-atividade' );
 				endwhile;
+				wp_reset_postdata();
 				?>
 			</div>
 			<div class="empty-state is-hidden" data-filter-empty>Nenhuma atividade encontrada para este pilar.</div>

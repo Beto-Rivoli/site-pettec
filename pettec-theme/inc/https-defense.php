@@ -92,6 +92,30 @@ function pettec_filter_https_url( $url ) {
 	return pettec_normalize_asset_url( $url, $force );
 }
 
+/**
+ * Normalize responsive image srcset candidate URLs to HTTPS when behind reverse proxy.
+ *
+ * @param array<int, array<string, mixed>> $sources Srcset source array.
+ * @return array<int, array<string, mixed>>
+ */
+function pettec_filter_https_srcset( $sources ) {
+	if ( ! is_array( $sources ) ) {
+		return $sources;
+	}
+	$force = pettec_is_https_request( $_SERVER, (string) home_url() );
+	if ( ! $force ) {
+		return $sources;
+	}
+	foreach ( $sources as &$source ) {
+		if ( ! empty( $source['url'] ) && is_string( $source['url'] ) ) {
+			$source['url'] = pettec_normalize_asset_url( $source['url'], true );
+		}
+	}
+	return $sources;
+}
+
 add_filter( 'style_loader_src', 'pettec_filter_https_url', 99 );
 add_filter( 'script_loader_src', 'pettec_filter_https_url', 99 );
 add_filter( 'wp_get_attachment_url', 'pettec_filter_https_url', 99 );
+add_filter( 'template_directory_uri', 'pettec_filter_https_url', 99 );
+add_filter( 'wp_calculate_image_srcset', 'pettec_filter_https_srcset', 99 );

@@ -236,7 +236,7 @@ function pettec_save_metaboxes( int $post_id ): void {
 				$aulas[] = array( 'titulo' => $t, 'url' => $u );
 			}
 		}
-		update_post_meta( $post_id, '_pettec_aulas', wp_json_encode( $aulas ) );
+		update_post_meta( $post_id, '_pettec_aulas', wp_slash( wp_json_encode( $aulas, JSON_UNESCAPED_UNICODE ) ) );
 
 		$materiais   = array();
 		$mat_titles  = isset( $_POST['pettec_materiais_titulo'] ) && is_array( $_POST['pettec_materiais_titulo'] ) ? wp_unslash( $_POST['pettec_materiais_titulo'] ) : array();
@@ -253,7 +253,7 @@ function pettec_save_metaboxes( int $post_id ): void {
 				$materiais[] = array( 'titulo' => $t, 'tipo' => $tipo, 'url' => $u );
 			}
 		}
-		update_post_meta( $post_id, '_pettec_materiais', wp_json_encode( $materiais ) );
+		update_post_meta( $post_id, '_pettec_materiais', wp_slash( wp_json_encode( $materiais, JSON_UNESCAPED_UNICODE ) ) );
 	}
 
 	if ( 'pettec_documento' === $post_type ) {
