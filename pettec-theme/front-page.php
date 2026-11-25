@@ -192,10 +192,10 @@ get_header();
 		<?php endif; ?>
 
 		<div class="works-outro reveal">
-			<h3 class="display-mixed display-mixed--lg">
+			<h3 class="display-mixed display-mixed--lg" data-parallax-speed="-0.12">
 				TEM MUITO MAIS <em>para explorar</em>
 			</h3>
-			<div class="works-outro-pills" aria-hidden="true">
+			<div class="works-outro-pills" data-parallax-speed="0.08" aria-hidden="true">
 				<span>100% Gratuito</span>
 				<span>Ensino, Pesquisa &amp; Extensão</span>
 				<span>Materiais &amp; Listas</span>
