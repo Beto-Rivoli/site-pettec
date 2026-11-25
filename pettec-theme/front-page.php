@@ -329,6 +329,12 @@ get_header();
 				'posts_per_page' => 8,
 				'orderby'        => 'title',
 				'order'          => 'ASC',
+				'meta_query'     => array(
+					array(
+						'key'   => '_pettec_membro_papel',
+						'value' => 'membro',
+					),
+				),
 			)
 		);
 		if ( $pettec_members_q->have_posts() ) :

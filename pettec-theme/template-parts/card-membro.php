@@ -16,6 +16,10 @@ $pettec_periodo  = (string) get_post_meta( get_the_ID(), '_pettec_membro_periodo
 $pettec_linkedin = pettec_clean_external_url( (string) get_post_meta( get_the_ID(), '_pettec_membro_linkedin', true ) );
 $pettec_lattes   = pettec_clean_external_url( (string) get_post_meta( get_the_ID(), '_pettec_membro_lattes', true ) );
 $pettec_github   = pettec_clean_external_url( (string) get_post_meta( get_the_ID(), '_pettec_membro_github', true ) );
+$pettec_foto     = sanitize_file_name( (string) get_post_meta( get_the_ID(), '_pettec_membro_foto', true ) );
+$pettec_foto_url = ( '' !== $pettec_foto && file_exists( PETTEC_THEME_DIR . '/assets/images/membros/' . $pettec_foto ) )
+	? PETTEC_THEME_URI . '/assets/images/membros/' . rawurlencode( $pettec_foto )
+	: '';
 
 $pettec_name     = get_the_title();
 $pettec_words    = preg_split( '/\s+/', trim( $pettec_name ) );
@@ -37,6 +41,8 @@ $pettec_papel_labels = array(
 	<div class="portrait-circle">
 		<?php if ( has_post_thumbnail() ) : ?>
 			<?php the_post_thumbnail( 'medium', array( 'loading' => 'lazy' ) ); ?>
+		<?php elseif ( '' !== $pettec_foto_url ) : ?>
+			<img src="<?php echo esc_url( $pettec_foto_url ); ?>" alt="<?php echo esc_attr( $pettec_name ); ?>" loading="lazy">
 		<?php else : ?>
 			<span aria-hidden="true"><?php echo esc_html( $pettec_initials ); ?></span>
 		<?php endif; ?>

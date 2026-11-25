@@ -24,7 +24,7 @@ function pettec_default_options(): array {
 		'metric_1_label'    => 'Anos de história',
 		'metric_2_num'      => '30+',
 		'metric_2_label'    => 'Mini cursos e oficinas',
-		'metric_3_num'      => '17',
+		'metric_3_num'      => '14',
 		'metric_3_label'    => 'Membros ativos',
 		'metric_4_num'      => '100%',
 		'metric_4_label'    => 'Ensino, Pesquisa e Extensão',
