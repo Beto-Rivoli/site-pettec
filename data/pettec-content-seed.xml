@@ -165,41 +165,6 @@
 	<item><title>Roberto Rivoli</title><wp:post_name>roberto-rivoli</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia de Computação</wp:meta_value></wp:postmeta></item>
 	<item><title>Ryan Felipe</title><wp:post_name>ryan-felipe</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia de Computação</wp:meta_value></wp:postmeta></item>
 
-	<!-- ATIVIDADES INSTITUCIONAIS INICIAIS -->
-	<item>
-		<title>Ciclo de Mini Cursos e Oficinas Abertas</title>
-		<wp:post_name>ciclo-de-mini-cursos-e-oficinas</wp:post_name>
-		<wp:status>publish</wp:status>
-		<wp:post_type><![CDATA[pettec_atividade]]></wp:post_type>
-		<category domain="pettec_pilar" nicename="ensino"><![CDATA[Ensino]]></category>
-		<excerpt:encoded><![CDATA[Capacitações semestrais abertas aos alunos da UNIFEI em programação, LaTeX, eletrônica e sistemas embarcados.]]></excerpt:encoded>
-		<content:encoded><![CDATA[<p>O PETTEC promove semestralmente oficinas e mini cursos abertos à comunidade acadêmica da UNIFEI, com materiais gratuitos e videoaulas publicadas no YouTube.</p>]]></content:encoded>
-		<wp:postmeta><wp:meta_key>_pettec_periodo</wp:meta_key><wp:meta_value>Contínuo</wp:meta_value></wp:postmeta>
-		<wp:postmeta><wp:meta_key>_pettec_status</wp:meta_key><wp:meta_value>Em andamento</wp:meta_value></wp:postmeta>
-	</item>
-	<item>
-		<title>Pesquisa Aplicada em Sistemas Embarcados e Computação</title>
-		<wp:post_name>pesquisa-sistemas-embarcados-computacao</wp:post_name>
-		<wp:status>publish</wp:status>
-		<wp:post_type><![CDATA[pettec_atividade]]></wp:post_type>
-		<category domain="pettec_pilar" nicename="pesquisa"><![CDATA[Pesquisa]]></category>
-		<excerpt:encoded><![CDATA[Desenvolvimento de projetos de iniciação científica coletiva e publicações em eventos nacionais de engenharia.]]></excerpt:encoded>
-		<content:encoded><![CDATA[<p>Os petianos desenvolvem projetos de pesquisa integrados às linhas do IESTI/UNIFEI, unindo hardware, software embarcado e computação aplicada.</p>]]></content:encoded>
-		<wp:postmeta><wp:meta_key>_pettec_periodo</wp:meta_key><wp:meta_value>2025/2026</wp:meta_value></wp:postmeta>
-		<wp:postmeta><wp:meta_key>_pettec_status</wp:meta_key><wp:meta_value>Em andamento</wp:meta_value></wp:postmeta>
-	</item>
-	<item>
-		<title>Extensão Tecnológica na Comunidade</title>
-		<wp:post_name>extensao-tecnologica-comunidade</wp:post_name>
-		<wp:status>publish</wp:status>
-		<wp:post_type><![CDATA[pettec_atividade]]></wp:post_type>
-		<category domain="pettec_pilar" nicename="extensao"><![CDATA[Extensão]]></category>
-		<excerpt:encoded><![CDATA[Ações de divulgação científica, robótica e introdução à tecnologia em escolas públicas de Itajubá e região.]]></excerpt:encoded>
-		<content:encoded><![CDATA[<p>Levamos a engenharia e a computação da UNIFEI para estudantes do ensino médio e comunidade externa através de oficinas práticas e demonstrações interativas.</p>]]></content:encoded>
-		<wp:postmeta><wp:meta_key>_pettec_periodo</wp:meta_key><wp:meta_value>Contínuo</wp:meta_value></wp:postmeta>
-		<wp:postmeta><wp:meta_key>_pettec_status</wp:meta_key><wp:meta_value>Em andamento</wp:meta_value></wp:postmeta>
-	</item>
-
 	<!-- DEPOIMENTOS (4 falas reais dos antigos petianos extraídas do site anterior) -->
 	<item>
 		<title>Vinícius Monteglione</title>
@@ -236,16 +201,6 @@
 		<content:encoded><![CDATA[<p>Participei do PET por 2 anos e, durante esse período, acumulei diversas experiências incríveis para mim. Enquanto participante tive oportunidade de trabalhar em diferentes áreas. Consegui desenvolver diversas habilidades sociais e técnicas enquanto ministrava cursos e desenvolvia diversos projetos que me ajudaram a aprender sobre diversos temas ao redor do meu curso.</p>]]></content:encoded>
 		<wp:postmeta><wp:meta_key>_pettec_dep_destaque</wp:meta_key><wp:meta_value>Dois anos desenvolvendo habilidades técnicas e sociais enquanto ministrava cursos e projetos.</wp:meta_value></wp:postmeta>
 		<wp:postmeta><wp:meta_key>_pettec_dep_subtitulo</wp:meta_key><wp:meta_value>Ex-membro PETTEC • UNIFEI</wp:meta_value></wp:postmeta>
-	</item>
-
-	<!-- POST INAUGURAL DO BLOG -->
-	<item>
-		<title>Bem-vindo ao novo site e Blog do PETTEC — UNIFEI!</title>
-		<wp:post_name>bem-vindo-ao-novo-site-e-blog-do-pettec</wp:post_name>
-		<wp:status>publish</wp:status>
-		<wp:post_type><![CDATA[post]]></wp:post_type>
-		<excerpt:encoded><![CDATA[Inauguramos a nova plataforma institucional do PETTEC com blog integrado, filtros de editais, mini cursos completos e muito mais velocidade.]]></excerpt:encoded>
-		<content:encoded><![CDATA[<p>É com grande satisfação que apresentamos o novo portal institucional do <strong>PETTEC — UNIFEI</strong>! Agora contamos com uma área dedicada de <strong>Blog</strong> para compartilhar tutoriais, bastidores dos nossos projetos de ensino, pesquisa e extensão, além de novidades sobre processos seletivos e eventos no campus.</p><p>Toda a plataforma foi reestruturada para ser leve, responsiva e simples de atualizar pelas próximas gerações de petianos.</p>]]></content:encoded>
 	</item>
 </channel>
 </rss>
