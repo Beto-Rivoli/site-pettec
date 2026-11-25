@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/"
+>
+<channel>
+	<title>PETTEC — UNIFEI</title>
+	<link>https://pettec.unifei.edu.br</link>
+	<description>Conteúdo estruturado do PETTEC — UNIFEI</description>
+	<language>pt-BR</language>
+	<wp:wxr_version>1.2</wp:wxr_version>
+
+	<!-- DOCUMENTOS & EDITAIS (7 reais de 2025/2026 em HTTPS) -->
+	<item>
+		<title>Planejamento 2026</title>
+		<wp:post_name>planejamento-2026</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_documento]]></wp:post_type>
+		<category domain="pettec_doc_tipo" nicename="planejamento"><![CDATA[Planejamento]]></category>
+		<excerpt:encoded><![CDATA[Planejamento anual de atividades de ensino, pesquisa e extensão do PETTEC para 2026.]]></excerpt:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_doc_ano</wp:meta_key><wp:meta_value>2026</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_doc_url</wp:meta_key><wp:meta_value>https://pettec.unifei.edu.br/wp-content/uploads/2026/01/PET-TEC_Planejamento_2026.pdf</wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title>Edital Processo Seletivo 2026</title>
+		<wp:post_name>edital-processo-seletivo-2026</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_documento]]></wp:post_type>
+		<category domain="pettec_doc_tipo" nicename="edital"><![CDATA[Edital]]></category>
+		<excerpt:encoded><![CDATA[Edital oficial de seleção de novos discentes para o grupo PETTEC — UNIFEI em 2026.]]></excerpt:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_doc_ano</wp:meta_key><wp:meta_value>2026</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_doc_codigo</wp:meta_key><wp:meta_value>Edital 01/2026</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_doc_url</wp:meta_key><wp:meta_value>https://pettec.unifei.edu.br/wp-content/uploads/2026/01/01_Processo-de-Selecao-de-discentes-PET-TEC.pdf</wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title>Planejamento 2025</title>
+		<wp:post_name>planejamento-2025</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_documento]]></wp:post_type>
+		<category domain="pettec_doc_tipo" nicename="planejamento"><![CDATA[Planejamento]]></category>
+		<excerpt:encoded><![CDATA[Planejamento anual de atividades do PETTEC — UNIFEI referente ao ano de 2025.]]></excerpt:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_doc_ano</wp:meta_key><wp:meta_value>2025</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_doc_url</wp:meta_key><wp:meta_value>https://pettec.unifei.edu.br/wp-content/uploads/2025/01/Planejamento_PETTEC-2025.pdf</wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title>Edital Processo Seletivo 2025</title>
+		<wp:post_name>edital-processo-seletivo-2025</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_documento]]></wp:post_type>
+		<category domain="pettec_doc_tipo" nicename="edital"><![CDATA[Edital]]></category>
+		<excerpt:encoded><![CDATA[Edital PRG nº 359/2024 referente ao processo seletivo 2025 do PETTEC.]]></excerpt:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_doc_ano</wp:meta_key><wp:meta_value>2025</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_doc_codigo</wp:meta_key><wp:meta_value>Edital 359/2024 PRG</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_doc_url</wp:meta_key><wp:meta_value>https://pettec.unifei.edu.br/wp-content/uploads/2025/01/Edital_359_2024_PRG_PET_TEC.pdf</wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title>Resultado Etapa 1 — Processo Seletivo 2025</title>
+		<wp:post_name>resultado-etapa-1-ps-2025</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_documento]]></wp:post_type>
+		<category domain="pettec_doc_tipo" nicename="edital"><![CDATA[Edital]]></category>
+		<wp:postmeta><wp:meta_key>_pettec_doc_ano</wp:meta_key><wp:meta_value>2025</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_doc_url</wp:meta_key><wp:meta_value>https://pettec.unifei.edu.br/wp-content/uploads/2025/02/Resultado-1-etapa-do-processo-seletivo-PET-TEC-202_250210_093300.pdf</wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title>Resultado Preliminar — Processo Seletivo 2025</title>
+		<wp:post_name>resultado-preliminar-ps-2025</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_documento]]></wp:post_type>
+		<category domain="pettec_doc_tipo" nicename="edital"><![CDATA[Edital]]></category>
+		<wp:postmeta><wp:meta_key>_pettec_doc_ano</wp:meta_key><wp:meta_value>2025</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_doc_url</wp:meta_key><wp:meta_value>https://pettec.unifei.edu.br/wp-content/uploads/2025/03/Resultado-preliminar-do-processo-seletivo-PET-TEC-_250221_094847-1.pdf</wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title>Resultado Final — Processo Seletivo 2025</title>
+		<wp:post_name>resultado-final-ps-2025</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_documento]]></wp:post_type>
+		<category domain="pettec_doc_tipo" nicename="edital"><![CDATA[Edital]]></category>
+		<wp:postmeta><wp:meta_key>_pettec_doc_ano</wp:meta_key><wp:meta_value>2025</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_doc_url</wp:meta_key><wp:meta_value>https://pettec.unifei.edu.br/wp-content/uploads/2025/03/Resultado-final-do-processo-seletivo-PET-TEC-2025_250228_112832.pdf</wp:meta_value></wp:postmeta>
+	</item>
+
+	<!-- MINI CURSOS (5 reais do YouTube do PETTEC) -->
+	<item>
+		<title>Curso básico sobre a linguagem Python</title>
+		<wp:post_name>curso-basico-python</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_minicurso]]></wp:post_type>
+		<excerpt:encoded><![CDATA[Introdução prática à linguagem Python cobrindo lógica de programação, estruturas de dados e projetos iniciais.]]></excerpt:encoded>
+		<content:encoded><![CDATA[<p>Mini curso introdutório sobre a linguagem Python ministrado pela equipe do PETTEC — UNIFEI. Ideal para ingressantes de engenharia e interessados em programação.</p>]]></content:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_instrutor</wp:meta_key><wp:meta_value>Equipe PETTEC</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_carga_horaria</wp:meta_key><wp:meta_value>Playlist completa</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_aulas</wp:meta_key><wp:meta_value><![CDATA[[{"titulo":"Playlist Completa — Python Básico","url":"https://www.youtube.com/embed/videoseries?list=PLj2JuvpFPmvB6Q8e9Kb6H1NsPZborClFZ"}]]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_materiais</wp:meta_key><wp:meta_value><![CDATA[[]]]></wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title>Curso à Programação Embarcada</title>
+		<wp:post_name>curso-programacao-embarcada</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_minicurso]]></wp:post_type>
+		<excerpt:encoded><![CDATA[Fundamentos de sistemas embarcados, microcontroladores, periféricos e programação voltada a hardware.]]></excerpt:encoded>
+		<content:encoded><![CDATA[<p>Aprenda os conceitos essenciais de programação embarcada com exemplos práticos preparados pelos membros do PETTEC.</p>]]></content:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_instrutor</wp:meta_key><wp:meta_value>Equipe PETTEC</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_carga_horaria</wp:meta_key><wp:meta_value>Playlist completa</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_aulas</wp:meta_key><wp:meta_value><![CDATA[[{"titulo":"Playlist Completa — Programação Embarcada","url":"https://www.youtube.com/embed/videoseries?list=PLj2JuvpFPmvBbpsytBXgM4y5-qf00bzEx"}]]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_materiais</wp:meta_key><wp:meta_value><![CDATA[[]]]></wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title>Curso LaTeX</title>
+		<wp:post_name>curso-latex</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_minicurso]]></wp:post_type>
+		<excerpt:encoded><![CDATA[Produção de artigos científicos, TCCs, relatórios acadêmicos e equações matemáticas profissionais com LaTeX.]]></excerpt:encoded>
+		<content:encoded><![CDATA[<p>Domine a escrita acadêmica em LaTeX para relatórios, artigos e trabalhos de conclusão de curso na UNIFEI.</p>]]></content:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_instrutor</wp:meta_key><wp:meta_value>Equipe PETTEC</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_carga_horaria</wp:meta_key><wp:meta_value>Playlist completa</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_aulas</wp:meta_key><wp:meta_value><![CDATA[[{"titulo":"Playlist Completa — Curso LaTeX","url":"https://www.youtube.com/embed/videoseries?list=PLj2JuvpFPmvDsEhvuxQQ-NqRJtnFzGZb-"}]]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_materiais</wp:meta_key><wp:meta_value><![CDATA[[]]]></wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title>Curso Circuitos e Eletrônica</title>
+		<wp:post_name>curso-circuitos-e-eletronica</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_minicurso]]></wp:post_type>
+		<excerpt:encoded><![CDATA[Análise de circuitos elétricos, componentes eletrônicos fundamentais e aplicações em laboratório.]]></excerpt:encoded>
+		<content:encoded><![CDATA[<p>Série de aulas abordando análise de circuitos elétricos e fundamentos de eletrônica voltados aos cursos de engenharia.</p>]]></content:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_instrutor</wp:meta_key><wp:meta_value>Equipe PETTEC</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_carga_horaria</wp:meta_key><wp:meta_value>Playlist completa</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_aulas</wp:meta_key><wp:meta_value><![CDATA[[{"titulo":"Playlist Completa — Circuitos e Eletrônica","url":"https://www.youtube.com/embed/videoseries?list=PLj2JuvpFPmvDABssK_MkuWauat18lam64"}]]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_materiais</wp:meta_key><wp:meta_value><![CDATA[[]]]></wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title>Curso Eletrônica Analógica II</title>
+		<wp:post_name>curso-eletronica-analogica-ii</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_minicurso]]></wp:post_type>
+		<excerpt:encoded><![CDATA[Amplificadores, resposta em frequência, realimentação e projetos práticos de eletrônica analógica.]]></excerpt:encoded>
+		<content:encoded><![CDATA[<p>Aulas de apoio e revisão aprofundada sobre Eletrônica Analógica II preparadas pelo grupo PETTEC.</p>]]></content:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_instrutor</wp:meta_key><wp:meta_value>Equipe PETTEC</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_carga_horaria</wp:meta_key><wp:meta_value>Playlist completa</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_aulas</wp:meta_key><wp:meta_value><![CDATA[[{"titulo":"Playlist Completa — Eletrônica Analógica II","url":"https://www.youtube.com/embed/videoseries?list=PLj2JuvpFPmvBYWze6QMD6cDTk98GibNsz"}]]]></wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_materiais</wp:meta_key><wp:meta_value><![CDATA[[]]]></wp:meta_value></wp:postmeta>
+	</item>
+
+	<!-- MEMBROS (17 integrantes reais atuais) -->
+	<item><title>André Marcos</title><wp:post_name>andre-marcos</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia de Computação</wp:meta_value></wp:postmeta></item>
+	<item><title>Bernardo Lamim</title><wp:post_name>bernardo-lamim</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia Eletrônica</wp:meta_value></wp:postmeta></item>
+	<item><title>Bruna Custódio</title><wp:post_name>bruna-custodio</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia de Computação</wp:meta_value></wp:postmeta></item>
+	<item><title>Felipe Vargas</title><wp:post_name>felipe-vargas</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia de Computação</wp:meta_value></wp:postmeta></item>
+	<item><title>Gabriel Fazion</title><wp:post_name>gabriel-fazion</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia de Computação</wp:meta_value></wp:postmeta></item>
+	<item><title>Guilherme Campos</title><wp:post_name>guilherme-campos</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia de Computação</wp:meta_value></wp:postmeta></item>
+	<item><title>João Gabriel Miguêz</title><wp:post_name>joao-gabriel-miguez</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia de Computação</wp:meta_value></wp:postmeta></item>
+	<item><title>Júlia Pivato</title><wp:post_name>julia-pivato</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia de Computação</wp:meta_value></wp:postmeta></item>
+	<item><title>Lenisa Maria</title><wp:post_name>lenisa-maria</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia de Computação</wp:meta_value></wp:postmeta></item>
+	<item><title>Letícia Reis</title><wp:post_name>leticia-reis</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia de Computação</wp:meta_value></wp:postmeta></item>
+	<item><title>Lucas de Paula</title><wp:post_name>lucas-de-paula</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia de Computação</wp:meta_value></wp:postmeta></item>
+	<item><title>Lucas Barbosa</title><wp:post_name>lucas-barbosa</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia de Computação</wp:meta_value></wp:postmeta></item>
+	<item><title>Maria Fernanda Soares</title><wp:post_name>maria-fernanda-soares</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia de Computação</wp:meta_value></wp:postmeta></item>
+	<item><title>Matheus Galdino</title><wp:post_name>matheus-galdino</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia de Computação</wp:meta_value></wp:postmeta></item>
+	<item><title>Mirela Domiciano</title><wp:post_name>mirela-domiciano</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia de Computação</wp:meta_value></wp:postmeta></item>
+	<item><title>Roberto Rivoli</title><wp:post_name>roberto-rivoli</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia de Computação</wp:meta_value></wp:postmeta></item>
+	<item><title>Ryan Felipe</title><wp:post_name>ryan-felipe</wp:post_name><wp:status>publish</wp:status><wp:post_type><![CDATA[pettec_membro]]></wp:post_type><wp:postmeta><wp:meta_key>_pettec_membro_papel</wp:meta_key><wp:meta_value>membro</wp:meta_value></wp:postmeta><wp:postmeta><wp:meta_key>_pettec_membro_curso</wp:meta_key><wp:meta_value>Engenharia de Computação</wp:meta_value></wp:postmeta></item>
+
+	<!-- ATIVIDADES INSTITUCIONAIS INICIAIS -->
+	<item>
+		<title>Ciclo de Mini Cursos e Oficinas Abertas</title>
+		<wp:post_name>ciclo-de-mini-cursos-e-oficinas</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_atividade]]></wp:post_type>
+		<category domain="pettec_pilar" nicename="ensino"><![CDATA[Ensino]]></category>
+		<excerpt:encoded><![CDATA[Capacitações semestrais abertas aos alunos da UNIFEI em programação, LaTeX, eletrônica e sistemas embarcados.]]></excerpt:encoded>
+		<content:encoded><![CDATA[<p>O PETTEC promove semestralmente oficinas e mini cursos abertos à comunidade acadêmica da UNIFEI, com materiais gratuitos e videoaulas publicadas no YouTube.</p>]]></content:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_periodo</wp:meta_key><wp:meta_value>Contínuo</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_status</wp:meta_key><wp:meta_value>Em andamento</wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title>Pesquisa Aplicada em Sistemas Embarcados e Computação</title>
+		<wp:post_name>pesquisa-sistemas-embarcados-computacao</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_atividade]]></wp:post_type>
+		<category domain="pettec_pilar" nicename="pesquisa"><![CDATA[Pesquisa]]></category>
+		<excerpt:encoded><![CDATA[Desenvolvimento de projetos de iniciação científica coletiva e publicações em eventos nacionais de engenharia.]]></excerpt:encoded>
+		<content:encoded><![CDATA[<p>Os petianos desenvolvem projetos de pesquisa integrados às linhas do IESTI/UNIFEI, unindo hardware, software embarcado e computação aplicada.</p>]]></content:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_periodo</wp:meta_key><wp:meta_value>2025/2026</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_status</wp:meta_key><wp:meta_value>Em andamento</wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title>Extensão Tecnológica na Comunidade</title>
+		<wp:post_name>extensao-tecnologica-comunidade</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_atividade]]></wp:post_type>
+		<category domain="pettec_pilar" nicename="extensao"><![CDATA[Extensão]]></category>
+		<excerpt:encoded><![CDATA[Ações de divulgação científica, robótica e introdução à tecnologia em escolas públicas de Itajubá e região.]]></excerpt:encoded>
+		<content:encoded><![CDATA[<p>Levamos a engenharia e a computação da UNIFEI para estudantes do ensino médio e comunidade externa através de oficinas práticas e demonstrações interativas.</p>]]></content:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_periodo</wp:meta_key><wp:meta_value>Contínuo</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_status</wp:meta_key><wp:meta_value>Em andamento</wp:meta_value></wp:postmeta>
+	</item>
+
+	<!-- DEPOIMENTOS (4 falas reais dos antigos petianos extraídas do site anterior) -->
+	<item>
+		<title>Vinícius Monteglione</title>
+		<wp:post_name>depoimento-vinicius-monteglione</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_depoimento]]></wp:post_type>
+		<content:encoded><![CDATA[<p>Ter participado do PET-TEC durante a graduação foi uma experiência muito enriquecedora. Ser membro não apenas me proporcionou contato com tecnologias relevantes no mercado, como o React Native, mas também me permitiu vivenciar a gratificante experiência de lecionar. Além disso, todos os participantes possuem voz ativa na sugestão e elaboração de projetos, permitindo ao aluno se aprofundar em tópicos de interesse na área da computação.</p>]]></content:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_dep_destaque</wp:meta_key><wp:meta_value>Tecnologias reais de mercado, voz ativa em projetos e a gratificante experiência de lecionar.</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_dep_subtitulo</wp:meta_key><wp:meta_value>Ex-membro PETTEC • UNIFEI</wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title>Leandro Moraes Barbosa</title>
+		<wp:post_name>depoimento-leandro-moraes-barbosa</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_depoimento]]></wp:post_type>
+		<content:encoded><![CDATA[<p>O PET foi uma das minhas melhores experiências da faculdade. Não só pelos projetos realizados, que geraram muito aprendizado, mas também pelo trabalho em equipe e pelo ambiente de colaboração entre os alunos, tanto para realização dos projetos quanto para os estudos das disciplinas do curso.</p>]]></content:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_dep_destaque</wp:meta_key><wp:meta_value>Uma das melhores experiências da faculdade pelo trabalho em equipe e ambiente de colaboração.</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_dep_subtitulo</wp:meta_key><wp:meta_value>Ex-membro PETTEC • UNIFEI</wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title>Leonardo Vieira Franzini</title>
+		<wp:post_name>depoimento-leonardo-vieira-franzini</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_depoimento]]></wp:post_type>
+		<content:encoded><![CDATA[<p>O PET TEC foi uma experiência incrível que tive oportunidade de participar durante a faculdade. O contato mais próximo com os professores tutores e outros alunos enriqueceram muito minha experiência acadêmica. Além do aprendizado individual que obtive, as pesquisas realizadas e apresentadas em conjunto tornam o PET TEC uma experiência única de união de forças entre os alunos, não só para finalizar os projetos e as demandas, mas também para colaborarem entre si nos estudos das disciplinas do curso.</p>]]></content:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_dep_destaque</wp:meta_key><wp:meta_value>Contato próximo com tutores, pesquisas em conjunto e uma união única de forças entre alunos.</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_dep_subtitulo</wp:meta_key><wp:meta_value>Ex-membro PETTEC • UNIFEI</wp:meta_value></wp:postmeta>
+	</item>
+	<item>
+		<title>Enzo Carvalho Silva</title>
+		<wp:post_name>depoimento-enzo-carvalho-silva</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[pettec_depoimento]]></wp:post_type>
+		<content:encoded><![CDATA[<p>Participei do PET por 2 anos e, durante esse período, acumulei diversas experiências incríveis para mim. Enquanto participante tive oportunidade de trabalhar em diferentes áreas. Consegui desenvolver diversas habilidades sociais e técnicas enquanto ministrava cursos e desenvolvia diversos projetos que me ajudaram a aprender sobre diversos temas ao redor do meu curso.</p>]]></content:encoded>
+		<wp:postmeta><wp:meta_key>_pettec_dep_destaque</wp:meta_key><wp:meta_value>Dois anos desenvolvendo habilidades técnicas e sociais enquanto ministrava cursos e projetos.</wp:meta_value></wp:postmeta>
+		<wp:postmeta><wp:meta_key>_pettec_dep_subtitulo</wp:meta_key><wp:meta_value>Ex-membro PETTEC • UNIFEI</wp:meta_value></wp:postmeta>
+	</item>
+
+	<!-- POST INAUGURAL DO BLOG -->
+	<item>
+		<title>Bem-vindo ao novo site e Blog do PETTEC — UNIFEI!</title>
+		<wp:post_name>bem-vindo-ao-novo-site-e-blog-do-pettec</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_type><![CDATA[post]]></wp:post_type>
+		<excerpt:encoded><![CDATA[Inauguramos a nova plataforma institucional do PETTEC com blog integrado, filtros de editais, mini cursos completos e muito mais velocidade.]]></excerpt:encoded>
+		<content:encoded><![CDATA[<p>É com grande satisfação que apresentamos o novo portal institucional do <strong>PETTEC — UNIFEI</strong>! Agora contamos com uma área dedicada de <strong>Blog</strong> para compartilhar tutoriais, bastidores dos nossos projetos de ensino, pesquisa e extensão, além de novidades sobre processos seletivos e eventos no campus.</p><p>Toda a plataforma foi reestruturada para ser leve, responsiva e simples de atualizar pelas próximas gerações de petianos.</p>]]></content:encoded>
+	</item>
+</channel>
+</rss>

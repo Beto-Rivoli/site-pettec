@@ -1,0 +1,12 @@
+{
+  "name": "pettec-unifei-theme",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Tema WordPress institucional próprio para o PETTEC - UNIFEI",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "dev": "npx --yes @wp-playground/cli server --blueprint=playground/blueprint.json --mount=./pettec-theme:/wordpress/wp-content/themes/pettec-theme --mount=./data:/wordpress/pettec-data --port=9400",
+    "zip": "node scripts/build-zip.mjs"
+  }
+}

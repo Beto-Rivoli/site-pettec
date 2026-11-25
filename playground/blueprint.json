@@ -1,0 +1,31 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/",
+  "preferredVersions": {
+    "php": "8.2",
+    "wp": "latest"
+  },
+  "steps": [
+    {
+      "step": "login",
+      "username": "admin",
+      "password": "password"
+    },
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "blogname": "PETTEC — UNIFEI",
+        "blogdescription": "Programa de Educação Tutorial em Tecnologia — UNIFEI",
+        "permalink_structure": "/%postname%/"
+      }
+    },
+    {
+      "step": "activateTheme",
+      "themeFolderName": "pettec-theme"
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once '/wordpress/wp-load.php'; pettec_seed_default_terms(); $pages = [ 'inicio' => ['Início', ''], 'blog' => ['Blog', ''], 'listas-de-exercicio' => ['Listas de Exercício', 'page-listas-de-exercicio.php'], 'contato' => ['Contato', 'page-contato.php'] ]; $ids = []; foreach ($pages as $slug => $cfg) { $existing = get_page_by_path($slug); if ($existing) { $ids[$slug] = $existing->ID; } else { $id = wp_insert_post(['post_type' => 'page', 'post_status' => 'publish', 'post_title' => $cfg[0], 'post_name' => $slug]); if ($cfg[1]) { update_post_meta($id, '_wp_page_template', $cfg[1]); } $ids[$slug] = $id; } } update_option('show_on_front', 'page'); update_option('page_on_front', $ids['inicio']); update_option('page_for_posts', $ids['blog']); $xml_path = '/wordpress/pettec-data/pettec-content-seed.xml'; if (file_exists($xml_path)) { $xml = simplexml_load_file($xml_path); $ns_wp = $xml->getNamespaces(true)['wp'] ?? 'http://wordpress.org/export/1.2/'; $ns_content = $xml->getNamespaces(true)['content'] ?? 'http://purl.org/rss/1.0/modules/content/'; $ns_excerpt = $xml->getNamespaces(true)['excerpt'] ?? 'http://wordpress.org/export/1.2/excerpt/'; foreach ($xml->channel->item as $item) { $wp = $item->children($ns_wp); $content = $item->children($ns_content); $excerpt = $item->children($ns_excerpt); $post_type = (string) $wp->post_type; $title = (string) $item->title; $exists = get_posts(['post_type' => $post_type, 'title' => $title, 'posts_per_page' => 1, 'post_status' => 'any']); if (!empty($exists)) { continue; } $pid = wp_insert_post([ 'post_type' => $post_type, 'post_status' => 'publish', 'post_title' => $title, 'post_name' => (string) $wp->post_name, 'post_content' => (string) $content->encoded, 'post_excerpt' => (string) $excerpt->encoded ]); foreach ($item->category as $cat) { $domain = (string) $cat['domain']; $nicename = (string) $cat['nicename']; if ($domain && $nicename) { wp_set_object_terms($pid, $nicename, $domain, true); } } foreach ($wp->postmeta as $pm) { $mk = (string) $pm->meta_key; $mv = (string) $pm->meta_value; if ($mk) { update_post_meta($pid, $mk, $mv); } } } } flush_rewrite_rules(); ?>"
+    }
+  ]
+}
