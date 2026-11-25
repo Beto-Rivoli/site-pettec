@@ -75,6 +75,16 @@
   transition: padding 0.25s ease, background-color 0.25s ease, backdrop-filter 0.25s ease;
 }
 
+body.admin-bar .site-header {
+  top: 32px;
+}
+
+@media (max-width: 782px) {
+  body.admin-bar .site-header {
+    top: 46px;
+  }
+}
+
 .site-header.is-scrolled {
   padding-block: 0.65rem;
   background: rgba(20, 22, 25, 0.86);

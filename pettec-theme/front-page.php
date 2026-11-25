@@ -38,7 +38,7 @@ get_header();
 						<defs>
 							<path id="pettecCirclePath" d="M 90, 90 m -66, 0 a 66,66 0 1,1 132,0 a 66,66 0 1,1 -132,0" />
 						</defs>
-						<text fill="#F8F8F6" font-size="11.5" font-weight="700" letter-spacing="3.2">
+						<text fill="#F8F8F6" font-size="11" font-weight="700" letter-spacing="2.2">
 							<textPath href="#pettecCirclePath">PETTEC • UNIFEI • ENSINO • PESQUISA • EXTENSÃO • </textPath>
 						</text>
 					</svg>
