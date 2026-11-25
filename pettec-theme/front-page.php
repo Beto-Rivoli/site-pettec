@@ -67,10 +67,10 @@ get_header();
 		<div class="courses-stage" data-force-stage>
 			<span class="eyebrow" style="margin-bottom: 0.5rem;">Cursos Integrantes do PETTEC • UNIFEI</span>
 			<p class="force-word" data-force-word="ELETRÔNICA">ELETRÔNICA</p>
-			<span class="courses-amp" aria-hidden="true">&amp; Engenharia de</span>
+			<span class="courses-amp" aria-hidden="true">&amp;</span>
 			<p class="force-word" data-force-word="COMPUTAÇÃO">COMPUTAÇÃO</p>
 			<p class="courses-caption">
-				O PETTEC conecta estudantes de <strong>Engenharia Eletrônica</strong> e <strong>Engenharia de Computação</strong> da UNIFEI. Passe o mouse sobre as letras para interagir.
+				O PETTEC conecta estudantes de <strong>Engenharia Eletrônica</strong> e <strong>Engenharia de Computação</strong> da UNIFEI.
 			</p>
 		</div>
 	</div>
