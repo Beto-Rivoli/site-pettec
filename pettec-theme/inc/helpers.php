@@ -41,8 +41,8 @@ function pettec_parse_youtube_url( string $url ): ?array {
 		parse_str( (string) $parts['query'], $query );
 	}
 
-	// Playlist URL: youtube.com/playlist?list=PL...
-	if ( 'playlist' === $path && ! empty( $query['list'] ) && preg_match( '/^[a-zA-Z0-9_-]{10,64}$/', (string) $query['list'] ) ) {
+	// Playlist URL: youtube.com/playlist?list=PL... or youtube.com/embed/videoseries?list=PL...
+	if ( ( 'playlist' === $path || 'embed/videoseries' === $path ) && ! empty( $query['list'] ) && preg_match( '/^[a-zA-Z0-9_-]{10,64}$/', (string) $query['list'] ) ) {
 		$list_id = (string) $query['list'];
 		return array(
 			'type'      => 'playlist',

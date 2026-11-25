@@ -62,3 +62,34 @@ test('functions.php sets up theme supports, menus, fonts, and /contact -> /conta
   assert.match(content, /\/contact/);
   assert.match(content, /301/);
 });
+
+test('WXR seed, Playground blueprint, migration guide, and forward-slash theme zip are valid', () => {
+  const wxrPath = path.join(ROOT, 'data', 'pettec-content-seed.xml');
+  const bpPath = path.join(ROOT, 'playground', 'blueprint.json');
+  const guidePath = path.join(ROOT, 'docs', 'guia-migracao-wp-admin.md');
+  const zipPath = path.join(ROOT, 'dist', 'pettec-theme.zip');
+
+  assert.equal(fs.existsSync(wxrPath), true, 'data/pettec-content-seed.xml must exist');
+  assert.equal(fs.existsSync(bpPath), true, 'playground/blueprint.json must exist');
+  assert.equal(fs.existsSync(guidePath), true, 'docs/guia-migracao-wp-admin.md must exist');
+  assert.equal(fs.existsSync(zipPath), true, 'dist/pettec-theme.zip must exist');
+
+  const wxr = fs.readFileSync(wxrPath, 'utf8');
+  assert.match(wxr, /<wp:post_type><!\[CDATA\[pettec_documento\]\]><\/wp:post_type>/);
+  assert.match(wxr, /<wp:post_type><!\[CDATA\[pettec_minicurso\]\]><\/wp:post_type>/);
+  assert.match(wxr, /<wp:post_type><!\[CDATA\[pettec_membro\]\]><\/wp:post_type>/);
+  assert.match(wxr, /<wp:post_type><!\[CDATA\[pettec_atividade\]\]><\/wp:post_type>/);
+  assert.doesNotMatch(wxr, /http:\/\/pettec\.unifei\.edu\.br/, 'WXR seed must not contain http:// mixed-content URLs');
+
+  const bp = JSON.parse(fs.readFileSync(bpPath, 'utf8'));
+  assert.ok(Array.isArray(bp.steps), 'blueprint.json must have steps array');
+  assert.match(JSON.stringify(bp), /pettec-theme/);
+
+  const zipBuf = fs.readFileSync(zipPath);
+  const zipLatin1 = zipBuf.toString('latin1');
+  assert.ok(zipBuf.length > 5000, 'zip archive must be non-empty');
+  assert.ok(zipLatin1.includes('pettec-theme/style.css'), 'zip must contain pettec-theme/style.css at top level');
+  assert.ok(!zipLatin1.includes('pettec-theme\\style.css'), 'zip must use forward slashes only');
+  assert.ok(!zipLatin1.includes('node_modules/'), 'zip must exclude node_modules');
+  assert.ok(!zipLatin1.includes('.git/'), 'zip must exclude .git');
+});
