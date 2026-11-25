@@ -52,3 +52,25 @@ test('header.php, footer.php, and 404.php implement PETTEC floating nav, logo pi
   assert.match(notFound, /404/);
   assert.match(notFound, /\/documentos\//);
 });
+
+test('front-page.php renders alternating dark/light bands with parallax, rotating badge, and all CPT queries', () => {
+  const filePath = path.join(THEME, 'front-page.php');
+  assert.equal(fs.existsSync(filePath), true, 'front-page.php must exist');
+  const content = fs.readFileSync(filePath, 'utf8');
+  assert.match(content, /band--dark/);
+  assert.match(content, /band--light/);
+  assert.match(content, /data-parallax-speed/);
+  assert.match(content, /data-scroll-rotate/);
+  for (const cpt of ['pettec_atividade', 'pettec_minicurso', 'pettec_documento', 'pettec_membro']) {
+    assert.match(content, new RegExp(cpt), `front-page.php must query ${cpt}`);
+  }
+});
+
+test('reusable card template parts exist and card-membro strips dead # links', () => {
+  for (const name of ['card-atividade.php', 'card-minicurso.php', 'card-membro.php', 'card-post.php']) {
+    assert.equal(fs.existsSync(path.join(THEME, 'template-parts', name)), true, `${name} must exist`);
+  }
+  const memberCard = fs.readFileSync(path.join(THEME, 'template-parts', 'card-membro.php'), 'utf8');
+  assert.match(memberCard, /pettec_clean_external_url/);
+  assert.match(memberCard, /portrait-circle/);
+});
