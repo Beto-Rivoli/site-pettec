@@ -74,3 +74,34 @@ test('reusable card template parts exist and card-membro strips dead # links', (
   assert.match(memberCard, /pettec_clean_external_url/);
   assert.match(memberCard, /portrait-circle/);
 });
+
+test('institutional archive and single templates exist and implement required filters and repeatable displays', () => {
+  const files = [
+    'archive-pettec_atividade.php',
+    'single-pettec_atividade.php',
+    'archive-pettec_minicurso.php',
+    'single-pettec_minicurso.php',
+    'page-listas-de-exercicio.php',
+    'archive-pettec_documento.php',
+    'archive-pettec_membro.php',
+  ];
+  for (const f of files) {
+    assert.equal(fs.existsSync(path.join(THEME, f)), true, `${f} must exist`);
+  }
+
+  const singleCurso = fs.readFileSync(path.join(THEME, 'single-pettec_minicurso.php'), 'utf8');
+  assert.match(singleCurso, /pettec_parse_youtube_url/);
+  assert.match(singleCurso, /_pettec_materiais/);
+
+  const listasPage = fs.readFileSync(path.join(THEME, 'page-listas-de-exercicio.php'), 'utf8');
+  assert.match(listasPage, /pettec_get_all_exercise_lists/);
+
+  const docsArchive = fs.readFileSync(path.join(THEME, 'archive-pettec_documento.php'), 'utf8');
+  assert.match(docsArchive, /data-filter-key="ano"/);
+  assert.match(docsArchive, /data-filter-key="tipo"/);
+
+  const membrosArchive = fs.readFileSync(path.join(THEME, 'archive-pettec_membro.php'), 'utf8');
+  assert.match(membrosArchive, /data-filter-value="tutor"/);
+  assert.match(membrosArchive, /data-filter-value="membro"/);
+  assert.match(membrosArchive, /data-filter-value="ex-membro"/);
+});
