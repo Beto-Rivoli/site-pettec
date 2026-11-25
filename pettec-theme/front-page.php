@@ -17,7 +17,10 @@ get_header();
 	<div class="container">
 		<div class="hero-layout">
 			<div data-parallax-speed="-0.08">
-				<span class="eyebrow"><?php echo esc_html( pettec_get_option( 'hero_eyebrow' ) ); ?></span>
+				<div class="hero-unifei-lockup">
+					<img src="<?php echo esc_url( PETTEC_THEME_URI . '/assets/images/logo-unifei-neg.png' ); ?>" alt="UNIFEI — Universidade Federal de Itajubá">
+					<span><?php echo esc_html( pettec_get_option( 'hero_eyebrow' ) ); ?></span>
+				</div>
 				<h1 class="display-mixed display-mixed--xl">
 					<?php echo esc_html( pettec_get_option( 'hero_title_sans' ) ); ?>
 					<em><?php echo esc_html( pettec_get_option( 'hero_title_serif' ) ); ?></em>
@@ -54,6 +57,21 @@ get_header();
 					<span><?php echo esc_html( pettec_get_option( "metric_{$i}_label" ) ); ?></span>
 				</div>
 			<?php endfor; ?>
+		</div>
+	</div>
+</section>
+
+<!-- 1.5. CURSOS INTEGRANTES DO PETTEC (Eletrônica & Computação — Campo de Força + Parallax) -->
+<section class="courses-band" aria-label="Cursos que integram o PETTEC">
+	<div class="container">
+		<div class="courses-stage" data-force-stage>
+			<span class="eyebrow" style="margin-bottom: 0.5rem;">Cursos Integrantes do PETTEC • UNIFEI</span>
+			<p class="force-word" data-force-word="ELETRÔNICA">ELETRÔNICA</p>
+			<span class="courses-amp" aria-hidden="true">&amp; Engenharia de</span>
+			<p class="force-word" data-force-word="COMPUTAÇÃO">COMPUTAÇÃO</p>
+			<p class="courses-caption">
+				O PETTEC conecta estudantes de <strong>Engenharia Eletrônica</strong> e <strong>Engenharia de Computação</strong> da UNIFEI. Passe o mouse sobre as letras para interagir.
+			</p>
 		</div>
 	</div>
 </section>

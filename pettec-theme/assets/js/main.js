@@ -334,3 +334,133 @@
     });
   }
 })();
+
+/* ==========================================================================
+   7. Force-Field Repulsion + Ambient Drift + Scroll Parallax for Courses
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  var prefersReduced =
+    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  var stage = document.querySelector('[data-force-stage]');
+  if (!stage) return;
+
+  var words = Array.prototype.slice.call(stage.querySelectorAll('[data-force-word]'));
+  var styleCycle = ['sans', 'serif', 'outline', 'sans', 'red-outline', 'mono', 'serif', 'sans'];
+  var chars = [];
+
+  words.forEach(function (wordEl, wIdx) {
+    var text = (wordEl.getAttribute('data-force-word') || wordEl.textContent || '').trim();
+    wordEl.setAttribute('aria-label', text);
+    wordEl.textContent = '';
+
+    for (var i = 0; i < text.length; i++) {
+      var ch = text.charAt(i);
+      var span = document.createElement('span');
+      var styleName = styleCycle[(i + wIdx * 3) % styleCycle.length];
+      span.className = 'force-char force-char--' + styleName;
+      span.setAttribute('aria-hidden', 'true');
+      span.textContent = ch === ' ' ? '\u00A0' : ch;
+      wordEl.appendChild(span);
+
+      chars.push({
+        el: span,
+        wordIdx: wIdx,
+        phase: (i * 0.65) + (wIdx * 1.9),
+        amp: 3.5 + (i % 3) * 1.4,
+        x: 0,
+        y: 0,
+        rot: 0,
+        vx: 0,
+        vy: 0,
+        vrot: 0
+      });
+    }
+  });
+
+  var pointer = { active: false, x: -9999, y: -9999 };
+  var radius = 165;
+  var strength = 68;
+  var spring = 0.085;
+  var damping = 0.78;
+  var isVisible = false;
+
+  stage.addEventListener('pointermove', function (e) {
+    pointer.active = true;
+    pointer.x = e.clientX;
+    pointer.y = e.clientY;
+  });
+
+  stage.addEventListener('pointerleave', function () {
+    pointer.active = false;
+  });
+
+  if ('IntersectionObserver' in window) {
+    var stageIO = new IntersectionObserver(
+      function (entries) {
+        isVisible = entries[0] && entries[0].isIntersecting;
+      },
+      { threshold: 0.02 }
+    );
+    stageIO.observe(stage);
+  } else {
+    isVisible = true;
+  }
+
+  function tick(now) {
+    if (isVisible) {
+      var t = now * 0.0014;
+      var stageRect = stage.getBoundingClientRect();
+      var vh = window.innerHeight || 800;
+      var scrollProgress = ((stageRect.top + stageRect.height / 2) - vh / 2) / vh;
+
+      words.forEach(function (wEl, idx) {
+        var dir = idx % 2 === 0 ? -1 : 1;
+        var shiftX = Math.max(-36, Math.min(36, scrollProgress * 44 * dir));
+        wEl.style.transform = 'translate3d(' + shiftX.toFixed(1) + 'px, 0, 0)';
+      });
+
+      for (var i = 0; i < chars.length; i++) {
+        var c = chars[i];
+        var targetX = Math.cos(t * 0.8 + c.phase) * (c.amp * 0.55);
+        var targetY = Math.sin(t + c.phase) * c.amp;
+        var targetRot = Math.sin(t * 0.7 + c.phase) * 2.2;
+
+        if (pointer.active) {
+          var rect = c.el.getBoundingClientRect();
+          var cx = rect.left + rect.width / 2 - c.x;
+          var cy = rect.top + rect.height / 2 - c.y;
+          var dx = cx - pointer.x;
+          var dy = cy - pointer.y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < radius && dist > 0.01) {
+            var force = Math.pow(1 - dist / radius, 1.6);
+            var nx = dx / dist;
+            var ny = dy / dist;
+            targetX += nx * force * strength;
+            targetY += ny * force * strength;
+            targetRot += (nx * 24 - ny * 10) * force;
+          }
+        }
+
+        c.vx = (c.vx + (targetX - c.x) * spring) * damping;
+        c.vy = (c.vy + (targetY - c.y) * spring) * damping;
+        c.vrot = (c.vrot + (targetRot - c.rot) * spring) * damping;
+
+        c.x += c.vx;
+        c.y += c.vy;
+        c.rot += c.vrot;
+
+        c.el.style.transform =
+          'translate3d(' + c.x.toFixed(1) + 'px, ' + c.y.toFixed(1) + 'px, 0) rotate(' + c.rot.toFixed(1) + 'deg)';
+      }
+    }
+    window.requestAnimationFrame(tick);
+  }
+
+  window.requestAnimationFrame(tick);
+})();

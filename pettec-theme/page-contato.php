@@ -83,7 +83,8 @@ get_header();
 				</div>
 
 				<div style="background: var(--surface-white); padding: 1.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
-					<span class="eyebrow" style="margin-bottom: 0.5rem;">Localização</span>
+					<span class="eyebrow" style="margin-bottom: 0.75rem;">Localização</span>
+					<img src="<?php echo esc_url( PETTEC_THEME_URI . '/assets/images/logo-unifei-pos.png' ); ?>" alt="UNIFEI" style="height: 32px; width: auto; margin-bottom: 0.85rem;">
 					<p class="muted" style="margin: 0;"><?php echo esc_html( $pettec_address ); ?></p>
 				</div>
 

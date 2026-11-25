@@ -34,11 +34,17 @@ $pettec_github    = function_exists( 'pettec_clean_external_url' ) ? pettec_clea
 
 		<div class="footer-grid">
 			<div class="footer-col">
-				<a class="logo-pill" href="<?php echo esc_url( home_url( '/' ) ); ?>" style="margin-bottom: 1rem;">
-					<img src="<?php echo esc_url( pettec_get_logo_url() ); ?>" alt="PETTEC UNIFEI">
-				</a>
+				<div class="footer-brand-lockup">
+					<a class="logo-pill" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+						<img src="<?php echo esc_url( pettec_get_logo_url() ); ?>" alt="PETTEC UNIFEI">
+					</a>
+					<span class="footer-brand-divider" aria-hidden="true"></span>
+					<a href="https://unifei.edu.br/" target="_blank" rel="noopener noreferrer" aria-label="Universidade Federal de Itajubá — UNIFEI">
+						<img class="footer-unifei-logo" src="<?php echo esc_url( PETTEC_THEME_URI . '/assets/images/logo-unifei-compl-neg.png' ); ?>" alt="UNIFEI — Universidade Federal de Itajubá">
+					</a>
+				</div>
 				<p class="muted" style="font-size: 0.9rem; margin: 0.75rem 0 0;">
-					Programa de Educação Tutorial em Tecnologia — Universidade Federal de Itajubá (UNIFEI).
+					Programa de Educação Tutorial em Tecnologia — Engenharia Eletrônica e Engenharia de Computação (UNIFEI).
 				</p>
 			</div>
 

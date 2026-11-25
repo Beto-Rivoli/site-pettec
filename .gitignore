@@ -1,6 +1,7 @@
 node_modules/
 dist/
 backups/
+image/
 .superpowers/
 .DS_Store
 Thumbs.db
