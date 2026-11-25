@@ -1,0 +1,54 @@
+/* ==========================================================================
+   PETTEC UNIFEI — Design Tokens
+   Palette derived from the official PETTEC logo (#1A1D21, #D61A1F, #F4F4F2)
+   ========================================================================== */
+
+:root {
+  /* Brand & Surfaces */
+  --bg-dark: #141619;
+  --bg-graphite: #1A1D21;
+  --bg-dark-elevated: #20242A;
+  --bg-light: #F4F4F2;
+  --surface-white: #FFFFFF;
+
+  /* Accent (PETTEC Red) */
+  --accent-red: #D61A1F;
+  --accent-red-hover: #B51419;
+  --accent-red-tint: #FDF0F0;
+
+  /* Typography Colors */
+  --ink-dark: #141619;
+  --ink-muted: #5A606B;
+  --ink-light: #F8F8F6;
+  --ink-light-muted: #A6ADB8;
+
+  /* Borders */
+  --border-light: rgba(26, 29, 33, 0.12);
+  --border-dark: rgba(255, 255, 255, 0.12);
+
+  /* Fonts */
+  --font-display: 'Barlow Condensed', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Layout */
+  --container-max: 1220px;
+  --gutter: clamp(1rem, 3vw, 2rem);
+  --band-pad: clamp(4rem, 7vw, 7rem);
+
+  /* Shadows */
+  --shadow-soft: 0 12px 32px rgba(20, 22, 25, 0.08);
+  --shadow-float: 0 16px 40px rgba(0, 0, 0, 0.22);
+
+  /* Z-index layers */
+  --z-bg: 0;
+  --z-content: 10;
+  --z-header: 100;
+  --z-drawer: 200;
+}

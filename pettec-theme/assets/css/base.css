@@ -1,0 +1,176 @@
+/* ==========================================================================
+   Base Reset, Typography & Buttons
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ink-dark);
+  background-color: var(--bg-light);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img,
+svg,
+iframe {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Focus ring for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-red);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Mixed Display Headlines (Extrafazant Condensed Sans + Editorial Serif) */
+.display-mixed {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.96;
+  margin: 0;
+}
+
+.display-mixed--xl {
+  font-size: clamp(2.8rem, 7.2vw, 6rem);
+}
+
+.display-mixed--lg {
+  font-size: clamp(2.1rem, 4.5vw, 3.6rem);
+}
+
+.display-mixed--md {
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+}
+
+.display-mixed em {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--accent-red);
+  padding-inline: 0.08em;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-red);
+  margin-bottom: 1rem;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-red);
+}
+
+.lead {
+  font-size: clamp(1.02rem, 1.4vw, 1.18rem);
+  line-height: 1.7;
+  max-width: 64ch;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-outline,
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.92rem;
+  line-height: 1;
+  padding: 0.9rem 1.45rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--accent-red);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: var(--accent-red-hover);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: currentColor;
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+  transform: translateY(-2px);
+}
+
+.btn-pill {
+  background: var(--surface-white);
+  color: var(--ink-dark);
+  padding: 0.65rem 1.15rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-pill:hover {
+  background: var(--accent-red);
+  color: #ffffff;
+}
+
+.btn-pill .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-red);
+  transition: background-color 0.2s ease;
+}
+
+.btn-pill:hover .dot {
+  background: #ffffff;
+}
