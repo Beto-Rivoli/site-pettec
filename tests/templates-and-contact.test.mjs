@@ -105,3 +105,24 @@ test('institutional archive and single templates exist and implement required fi
   assert.match(membrosArchive, /data-filter-value="membro"/);
   assert.match(membrosArchive, /data-filter-value="ex-membro"/);
 });
+
+test('Blog templates and CSRF/honeypot-protected Contact page exist with header-injection defense', () => {
+  for (const f of ['home.php', 'archive.php', 'single.php', 'index.php', 'page-contato.php']) {
+    assert.equal(fs.existsSync(path.join(THEME, f)), true, `${f} must exist`);
+  }
+  const handlerPath = path.join(THEME, 'inc', 'contact-form.php');
+  assert.equal(fs.existsSync(handlerPath), true, 'inc/contact-form.php must exist');
+
+  const handler = fs.readFileSync(handlerPath, 'utf8');
+  assert.match(handler, /function\s+pettec_handle_contact_submission\s*\(/);
+  assert.match(handler, /wp_verify_nonce/);
+  assert.match(handler, /pettec_website/);
+  assert.match(handler, /\\r|\\n/);
+  assert.match(handler, /is_email/);
+  assert.match(handler, /wp_mail/);
+
+  const contactPage = fs.readFileSync(path.join(THEME, 'page-contato.php'), 'utf8');
+  assert.match(contactPage, /wp_nonce_field/);
+  assert.match(contactPage, /pettec_website/);
+  assert.match(contactPage, /pettec_handle_contact_submission/);
+});
