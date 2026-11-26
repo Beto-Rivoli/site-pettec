@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="pettec-theme/assets/images/logo-pettec.png" alt="Logo PETTEC — UNIFEI" width="220">
+</p>
+
 # Site Institucional PETTEC — UNIFEI (Tema WordPress)
 
 Tema WordPress próprio desenvolvido para o **PETTEC — Programa de Educação Tutorial em Tecnologia** da **Universidade Federal de Itajubá (UNIFEI)** ([pettec.unifei.edu.br](https://pettec.unifei.edu.br/)).
