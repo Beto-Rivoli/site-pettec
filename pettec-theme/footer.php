@@ -92,6 +92,7 @@ $pettec_github    = function_exists( 'pettec_clean_external_url' ) ? pettec_clea
 		<div class="footer-bottom">
 			<span>&copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> PETTEC — UNIFEI. Todos os direitos reservados.</span>
 			<span><?php echo esc_html( $pettec_address ); ?></span>
+			<span>Desenvolvido por <a href="https://github.com/Beto-Rivoli" target="_blank" rel="noopener noreferrer" style="color: var(--ink-light); font-weight: 600; text-decoration: underline; text-underline-offset: 3px;">Roberto Rivoli</a></span>
 		</div>
 	</div>
 </footer>
