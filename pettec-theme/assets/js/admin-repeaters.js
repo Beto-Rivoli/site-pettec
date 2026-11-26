@@ -60,4 +60,38 @@
     });
     frame.open();
   });
+
+  $(document).on('click', '.pettec-photo-select', function (e) {
+    e.preventDefault();
+    var $wrap = $(this).closest('.pettec-photo-field');
+    if (typeof wp === 'undefined' || !wp.media) {
+      return;
+    }
+    var frame = wp.media({
+      title: 'Escolher Foto / Imagem de Capa',
+      button: { text: 'Usar esta imagem' },
+      library: { type: 'image' },
+      multiple: false
+    });
+    frame.on('select', function () {
+      var attachment = frame.state().get('selection').first().toJSON();
+      if (attachment && attachment.id) {
+        var previewUrl =
+          (attachment.sizes && attachment.sizes.medium && attachment.sizes.medium.url) ||
+          attachment.url;
+        $wrap.find('.pettec-photo-id').val(attachment.id);
+        $wrap
+          .find('.pettec-photo-preview')
+          .html('<img src="' + previewUrl + '" alt="" style="width:100%;height:100%;object-fit:cover;">');
+      }
+    });
+    frame.open();
+  });
+
+  $(document).on('click', '.pettec-photo-remove', function (e) {
+    e.preventDefault();
+    var $wrap = $(this).closest('.pettec-photo-field');
+    $wrap.find('.pettec-photo-id').val('');
+    $wrap.find('.pettec-photo-preview').html('<span>Sem foto</span>');
+  });
 })(jQuery);

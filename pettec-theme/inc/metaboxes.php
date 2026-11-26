@@ -19,7 +19,7 @@ function pettec_admin_metabox_assets( string $hook ): void {
 		return;
 	}
 	$screen = get_current_screen();
-	if ( ! $screen || ! in_array( $screen->post_type, array( 'pettec_minicurso', 'pettec_documento' ), true ) ) {
+	if ( ! $screen || ! in_array( $screen->post_type, array( 'pettec_atividade', 'pettec_minicurso', 'pettec_documento', 'pettec_membro', 'pettec_depoimento' ), true ) ) {
 		return;
 	}
 
@@ -46,8 +46,45 @@ function pettec_add_metaboxes(): void {
 }
 add_action( 'add_meta_boxes', 'pettec_add_metaboxes' );
 
+/**
+ * Render an inline visual photo picker synced with WordPress Featured Image (_thumbnail_id).
+ *
+ * @param WP_Post $post  Current post object.
+ * @param string  $label Field label.
+ */
+function pettec_render_photo_field( WP_Post $post, string $label = 'Foto / Imagem de Capa' ): void {
+	$thumb_id  = (int) get_post_thumbnail_id( $post->ID );
+	$thumb_url = $thumb_id ? (string) wp_get_attachment_image_url( $thumb_id, 'medium' ) : '';
+
+	if ( '' === $thumb_url && 'pettec_membro' === $post->post_type ) {
+		$bundled = sanitize_file_name( (string) get_post_meta( $post->ID, '_pettec_membro_foto', true ) );
+		if ( '' !== $bundled && file_exists( PETTEC_THEME_DIR . '/assets/images/membros/' . $bundled ) ) {
+			$thumb_url = PETTEC_THEME_URI . '/assets/images/membros/' . rawurlencode( $bundled );
+		}
+	}
+	?>
+	<div class="pettec-photo-field" style="display:flex;align-items:center;gap:16px;padding:12px;background:#f6f7f7;border:1px solid #dcdcde;border-radius:6px;margin-bottom:16px;">
+		<div class="pettec-photo-preview" style="width:76px;height:76px;border-radius:<?php echo 'pettec_membro' === $post->post_type || 'pettec_depoimento' === $post->post_type ? '50%' : '8px'; ?>;overflow:hidden;background:#1a1d21;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;flex-shrink:0;">
+			<?php if ( '' !== $thumb_url ) : ?>
+				<img src="<?php echo esc_url( $thumb_url ); ?>" alt="" style="width:100%;height:100%;object-fit:cover;">
+			<?php else : ?>
+				<span>Sem foto</span>
+			<?php endif; ?>
+		</div>
+		<div>
+			<label style="display:block;margin-bottom:6px;"><strong><?php echo esc_html( $label ); ?>:</strong></label>
+			<input type="hidden" name="_pettec_featured_image_id" class="pettec-photo-id" value="<?php echo esc_attr( (string) $thumb_id ); ?>">
+			<button type="button" class="button button-primary pettec-photo-select">Escolher / Enviar Foto</button>
+			<button type="button" class="button pettec-photo-remove" style="margin-left:6px;">Remover</button>
+			<p class="description" style="margin:6px 0 0;">Você também pode alterar pela opção <em>Imagem destacada</em> na barra lateral direita.</p>
+		</div>
+	</div>
+	<?php
+}
+
 function pettec_render_atividade_metabox( WP_Post $post ): void {
 	wp_nonce_field( 'pettec_save_meta', 'pettec_meta_nonce' );
+	pettec_render_photo_field( $post, 'Imagem de Capa da Atividade' );
 	$periodo = (string) get_post_meta( $post->ID, '_pettec_periodo', true );
 	$status  = (string) get_post_meta( $post->ID, '_pettec_status', true );
 	$link    = (string) get_post_meta( $post->ID, '_pettec_link_externo', true );
@@ -72,6 +109,7 @@ function pettec_render_atividade_metabox( WP_Post $post ): void {
 
 function pettec_render_minicurso_metabox( WP_Post $post ): void {
 	wp_nonce_field( 'pettec_save_meta', 'pettec_meta_nonce' );
+	pettec_render_photo_field( $post, 'Imagem de Capa do Mini Curso' );
 	$instrutor = (string) get_post_meta( $post->ID, '_pettec_instrutor', true );
 	$carga     = (string) get_post_meta( $post->ID, '_pettec_carga_horaria', true );
 	$aulas     = pettec_get_repeater_meta( $post->ID, '_pettec_aulas' );
@@ -156,6 +194,7 @@ function pettec_render_documento_metabox( WP_Post $post ): void {
 
 function pettec_render_membro_metabox( WP_Post $post ): void {
 	wp_nonce_field( 'pettec_save_meta', 'pettec_meta_nonce' );
+	pettec_render_photo_field( $post, 'Foto de Perfil do Membro' );
 	$papel    = (string) get_post_meta( $post->ID, '_pettec_membro_papel', true );
 	$curso    = (string) get_post_meta( $post->ID, '_pettec_membro_curso', true );
 	$periodo  = (string) get_post_meta( $post->ID, '_pettec_membro_periodo', true );
@@ -200,6 +239,7 @@ function pettec_render_membro_metabox( WP_Post $post ): void {
 
 function pettec_render_depoimento_metabox( WP_Post $post ): void {
 	wp_nonce_field( 'pettec_save_meta', 'pettec_meta_nonce' );
+	pettec_render_photo_field( $post, 'Foto do Ex-petiano (opcional)' );
 	$destaque  = (string) get_post_meta( $post->ID, '_pettec_dep_destaque', true );
 	$subtitulo = (string) get_post_meta( $post->ID, '_pettec_dep_subtitulo', true );
 	?>
@@ -231,6 +271,16 @@ function pettec_save_metaboxes( int $post_id ): void {
 	}
 
 	$post_type = get_post_type( $post_id );
+
+	// Sync inline photo picker with WordPress native Featured Image (_thumbnail_id).
+	if ( isset( $_POST['_pettec_featured_image_id'] ) ) {
+		$photo_id = absint( wp_unslash( $_POST['_pettec_featured_image_id'] ) );
+		if ( $photo_id > 0 ) {
+			set_post_thumbnail( $post_id, $photo_id );
+		} elseif ( '' === (string) wp_unslash( $_POST['_pettec_featured_image_id'] ) ) {
+			delete_post_thumbnail( $post_id );
+		}
+	}
 
 	if ( 'pettec_atividade' === $post_type ) {
 		update_post_meta( $post_id, '_pettec_periodo', sanitize_text_field( wp_unslash( $_POST['_pettec_periodo'] ?? '' ) ) );
