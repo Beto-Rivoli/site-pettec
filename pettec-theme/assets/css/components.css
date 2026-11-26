@@ -448,31 +448,6 @@
     linear-gradient(160deg, #1e222a 0%, #111317 100%);
 }
 
-.work-card-svg-accent {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-
-.work-card:hover .work-card-svg-accent {
-  opacity: 1;
-}
-
-.work-card-svg-accent path {
-  stroke: var(--accent-red);
-  stroke-width: 3;
-  fill: none;
-  stroke-dasharray: 600;
-  stroke-dashoffset: 600;
-  transition: stroke-dashoffset 0.75s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.work-card:hover .work-card-svg-accent path {
-  stroke-dashoffset: 0;
-}
-
 .work-card-footer {
   display: flex;
   align-items: center;
@@ -559,7 +534,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.75rem;
-  margin: 1.25rem 0 1.75rem;
+  margin: 2.25rem 0 2rem;
 }
 
 .works-outro-pills span {

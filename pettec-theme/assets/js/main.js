@@ -21,19 +21,21 @@
     ticking = false;
     updateHeader();
 
-    if (prefersReduced || window.innerWidth < 768) {
+    if (prefersReduced) {
       return;
     }
 
     var scrollY = window.scrollY;
     var vh = window.innerHeight || 800;
+    var mobileScale = window.innerWidth < 768 ? 0.55 : 1;
 
     for (var i = 0; i < parallaxNodes.length; i++) {
       var el = parallaxNodes[i];
       var speed = parseFloat(el.getAttribute('data-parallax-speed') || '0.12');
+      var maxShift = parseFloat(el.getAttribute('data-parallax-max') || '48') * mobileScale;
       var rect = el.getBoundingClientRect();
-      var offset = ((rect.top + rect.height / 2) - vh / 2) * speed;
-      var clamped = Math.max(-48, Math.min(48, offset));
+      var offset = ((rect.top + rect.height / 2) - vh / 2) * speed * mobileScale;
+      var clamped = Math.max(-maxShift, Math.min(maxShift, offset));
       el.style.transform = 'translate3d(0, ' + clamped.toFixed(1) + 'px, 0)';
     }
 
@@ -572,23 +574,21 @@
     sideTicking = false;
     var isDesktop = window.innerWidth >= 820;
     var vh = window.innerHeight || 800;
+    var maxTravel = isDesktop ? 120 : 68;
+    var maxRot = isDesktop ? 3.2 : 2.2;
 
     for (var i = 0; i < sideCards.length; i++) {
       var card = sideCards[i];
-      if (!isDesktop) {
-        card.style.transform = '';
-        continue;
-      }
       var dir = card.getAttribute('data-side-parallax') === 'left' ? -1 : 1;
       var rect = card.getBoundingClientRect();
       // Progress goes 0 (entering bottom at 96% vh) -> 1 (settled at 42% vh)
       var startY = vh * 0.96;
-      var endY = vh * 0.42;
+      var endY = vh * (isDesktop ? 0.42 : 0.48);
       var raw = (startY - rect.top) / (startY - endY);
       var progress = Math.max(0, Math.min(1, raw));
       var remaining = Math.pow(1 - progress, 2);
-      var tx = dir * remaining * 120;
-      var rot = dir * remaining * 3.2;
+      var tx = dir * remaining * maxTravel;
+      var rot = dir * remaining * maxRot;
 
       if (remaining < 0.002) {
         card.style.transform = 'translate3d(0, 0, 0)';

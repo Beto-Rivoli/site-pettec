@@ -172,9 +172,6 @@ get_header();
 									<span class="display-mixed display-mixed--md" style="color: #fff;"><?php echo esc_html( get_the_title( $work ) ); ?></span>
 								</div>
 							<?php endif; ?>
-							<svg class="work-card-svg-accent" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
-								<path d="M 18 282 Q 110 210 205 245 T 382 18" />
-							</svg>
 						</div>
 						<div class="work-card-footer">
 							<div class="work-card-id">
@@ -192,10 +189,10 @@ get_header();
 		<?php endif; ?>
 
 		<div class="works-outro reveal">
-			<h3 class="display-mixed display-mixed--lg" data-parallax-speed="-0.12">
+			<h3 class="display-mixed display-mixed--lg" data-parallax-speed="-0.06" data-parallax-max="14">
 				TEM MUITO MAIS <em>para explorar</em>
 			</h3>
-			<div class="works-outro-pills" data-parallax-speed="0.08" aria-hidden="true">
+			<div class="works-outro-pills" data-parallax-speed="0.04" data-parallax-max="10" aria-hidden="true">
 				<span>100% Gratuito</span>
 				<span>Ensino, Pesquisa &amp; Extensão</span>
 				<span>Materiais &amp; Listas</span>
