@@ -10,6 +10,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
   overflow-x: clip;
 }
 
@@ -21,6 +22,7 @@ body {
   color: var(--ink-dark);
   background-color: var(--bg-light);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
   overflow-x: clip;
 }
 

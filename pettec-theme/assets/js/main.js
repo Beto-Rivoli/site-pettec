@@ -1,9 +1,6 @@
 (function () {
   'use strict';
 
-  var prefersReduced =
-    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   /* 1. Sticky Header Scroll State */
   var header = document.querySelector('.site-header');
   function updateHeader() {
@@ -20,10 +17,6 @@
   function renderScrollMotion() {
     ticking = false;
     updateHeader();
-
-    if (prefersReduced) {
-      return;
-    }
 
     var scrollY = window.scrollY;
     var vh = window.innerHeight || 800;
@@ -59,7 +52,7 @@
 
   /* 3. Scroll Reveal via IntersectionObserver */
   var revealNodes = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
-  if (!prefersReduced && 'IntersectionObserver' in window && revealNodes.length) {
+  if ('IntersectionObserver' in window && revealNodes.length) {
     var io = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
@@ -161,62 +154,54 @@
 (function () {
   'use strict';
 
-  var prefersReduced =
-    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   /* 6A. Full-Screen Page Transition Curtain */
   var curtain = document.getElementById('pettec-page-transition');
   if (curtain) {
-    if (prefersReduced) {
-      curtain.classList.remove('is-entering', 'is-leaving');
-      curtain.classList.add('is-entered');
-    } else {
+    window.requestAnimationFrame(function () {
       window.requestAnimationFrame(function () {
-        window.requestAnimationFrame(function () {
-          curtain.classList.remove('is-entering');
-          curtain.classList.add('is-entered');
-        });
+        curtain.classList.remove('is-entering');
+        curtain.classList.add('is-entered');
       });
+    });
 
-      window.addEventListener('pageshow', function (evt) {
-        if (evt.persisted) {
-          curtain.classList.remove('is-leaving', 'is-entering');
-          curtain.classList.add('is-entered');
-        }
-      });
+    window.addEventListener('pageshow', function (evt) {
+      if (evt.persisted) {
+        curtain.classList.remove('is-leaving', 'is-entering');
+        curtain.classList.add('is-entered');
+      }
+    });
 
-      document.addEventListener('click', function (e) {
-        var link = e.target && e.target.closest ? e.target.closest('a[href]') : null;
-        if (!link) return;
-        if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
-        if (link.target === '_blank' || link.hasAttribute('download')) return;
+    document.addEventListener('click', function (e) {
+      var link = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!link) return;
+      if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      if (link.target === '_blank' || link.hasAttribute('download')) return;
 
-        var href = link.getAttribute('href') || '';
-        if (!href || href.charAt(0) === '#' || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) return;
+      var href = link.getAttribute('href') || '';
+      if (!href || href.charAt(0) === '#' || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) return;
 
-        var url;
-        try {
-          url = new URL(link.href, window.location.href);
-        } catch (_) {
-          return;
-        }
-        if (url.origin !== window.location.origin) return;
-        if (url.pathname.indexOf('/wp-admin') === 0 || url.pathname.indexOf('/wp-login') === 0) return;
-        if (url.pathname === window.location.pathname && url.search === window.location.search) return;
+      var url;
+      try {
+        url = new URL(link.href, window.location.href);
+      } catch (_) {
+        return;
+      }
+      if (url.origin !== window.location.origin) return;
+      if (url.pathname.indexOf('/wp-admin') === 0 || url.pathname.indexOf('/wp-login') === 0) return;
+      if (url.pathname === window.location.pathname && url.search === window.location.search) return;
 
-        e.preventDefault();
-        curtain.classList.remove('is-entered', 'is-entering');
-        curtain.classList.add('is-leaving');
-        window.setTimeout(function () {
-          window.location.href = url.href;
-        }, 380);
-      });
-    }
+      e.preventDefault();
+      curtain.classList.remove('is-entered', 'is-entering');
+      curtain.classList.add('is-leaving');
+      window.setTimeout(function () {
+        window.location.href = url.href;
+      }, 380);
+    });
   }
 
   /* 6B. Two26 Clip-Path Reveal Observer */
   var clipNodes = Array.prototype.slice.call(document.querySelectorAll('.work-card-clip'));
-  if (!prefersReduced && 'IntersectionObserver' in window && clipNodes.length) {
+  if ('IntersectionObserver' in window && clipNodes.length) {
     var clipIO = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
@@ -269,7 +254,7 @@
         activeIdx = typeof nextIndex === 'number' ? nextIndex : (activeIdx + 1) % cards.length;
         applyPositions();
         isAnimating = false;
-      }, prefersReduced ? 0 : 280);
+      }, 280);
     }
 
     applyPositions();
@@ -303,38 +288,34 @@
       matrix.appendChild(cell);
       cells.push(cell);
     }
-    if (!prefersReduced) {
-      window.setInterval(function () {
-        var pick = cells[Math.floor(Math.random() * cells.length)];
-        if (!pick) return;
-        pick.classList.add('is-lit');
-        window.setTimeout(function () {
-          pick.classList.remove('is-lit');
-        }, 1200);
-      }, 650);
-    }
+    window.setInterval(function () {
+      var pick = cells[Math.floor(Math.random() * cells.length)];
+      if (!pick) return;
+      pick.classList.add('is-lit');
+      window.setTimeout(function () {
+        pick.classList.remove('is-lit');
+      }, 1200);
+    }, 650);
   });
 
   /* 6E. Kinetic 3D Magnetic Tilt & Cursor Spotlight on Member Cards */
-  if (!prefersReduced) {
-    var tiltCards = document.querySelectorAll('[data-tilt-card]');
-    tiltCards.forEach(function (card) {
-      card.addEventListener('pointermove', function (e) {
-        var rect = card.getBoundingClientRect();
-        var px = (e.clientX - rect.left) / rect.width;
-        var py = (e.clientY - rect.top) / rect.height;
-        var rx = (0.5 - py) * 12;
-        var ry = (px - 0.5) * 12;
-        card.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
-        card.style.setProperty('--my', (py * 100).toFixed(1) + '%');
-        card.style.transform =
-          'perspective(800px) rotateX(' + rx.toFixed(1) + 'deg) rotateY(' + ry.toFixed(1) + 'deg) translateY(-6px)';
-      });
-      card.addEventListener('pointerleave', function () {
-        card.style.transform = '';
-      });
+  var tiltCards = document.querySelectorAll('[data-tilt-card]');
+  tiltCards.forEach(function (card) {
+    card.addEventListener('pointermove', function (e) {
+      var rect = card.getBoundingClientRect();
+      var px = (e.clientX - rect.left) / rect.width;
+      var py = (e.clientY - rect.top) / rect.height;
+      var rx = (0.5 - py) * 12;
+      var ry = (px - 0.5) * 12;
+      card.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+      card.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+      card.style.transform =
+        'perspective(800px) rotateX(' + rx.toFixed(1) + 'deg) rotateY(' + ry.toFixed(1) + 'deg) translateY(-6px)';
     });
-  }
+    card.addEventListener('pointerleave', function () {
+      card.style.transform = '';
+    });
+  });
 })();
 
 /* ==========================================================================
@@ -342,10 +323,6 @@
    ========================================================================== */
 (function () {
   'use strict';
-
-  var prefersReduced =
-    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return;
 
   var stage = document.querySelector('[data-force-stage]');
   if (!stage) return;
@@ -473,10 +450,6 @@
 (function () {
   'use strict';
 
-  var prefersReduced =
-    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return;
-
   var headlines = document.querySelectorAll('[data-float-headline]');
   if (!headlines.length) return;
 
@@ -560,10 +533,6 @@
    ========================================================================== */
 (function () {
   'use strict';
-
-  var prefersReduced =
-    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return;
 
   var sideCards = Array.prototype.slice.call(document.querySelectorAll('[data-side-parallax]'));
   if (!sideCards.length) return;

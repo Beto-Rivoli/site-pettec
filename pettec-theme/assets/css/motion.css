@@ -151,37 +151,3 @@
 .works-outro-pills span:nth-child(3) {
   animation: pettecPillFloatC 4.5s ease-in-out infinite 1s;
 }
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .reveal,
-  .work-card-clip {
-    opacity: 1 !important;
-    transform: none !important;
-    clip-path: none !important;
-    transition: none !important;
-  }
-
-  .page-transition {
-    display: none !important;
-  }
-
-  .member-card--kinetic,
-  .works-outro-pills span {
-    animation: none !important;
-  }
-
-  .testimonials-stage:hover .deck-card[data-pos="0"]:not(.is-throwing) {
-    transform: none !important;
-  }
-
-  [data-parallax-speed],
-  [data-scroll-rotate],
-  [data-tilt-card] {
-    transform: none !important;
-    will-change: auto;
-  }
-}
