@@ -16,21 +16,6 @@ Este guia detalha o passo a passo para substituir o tema atual (Twenty Twenty-Fo
 
 ---
 
-## Etapa 2 — Corrigir o Mixed Content (`http://` → `https://`)
-
-O diagnóstico mostrou que o site atual bloqueava 44 de 50 arquivos por carregar recursos em `http://` dentro de `https://`.
-
-1. Vá em **Configurações → Geral**.
-2. Verifique se **Endereço do WordPress (URL)** e **Endereço do site (URL)** estão ambos como:
-   `https://pettec.unifei.edu.br` (com `https://`). Salve se alterou.
-3. *(Opcional, recomendado se ainda houver links antigos no banco)* Instale o plugin **Better Search Replace**, vá em **Ferramentas → Better Search Replace**, selecione todas as tabelas e substitua:
-   - Procurar por: `http://pettec.unifei.edu.br`
-   - Substituir por: `https://pettec.unifei.edu.br`
-   - Desmarque "Executar como simulação?" após conferir a prévia e rode.
-4. O tema `pettec-theme` também inclui defesa automática de HTTPS (`inc/https-defense.php`) para servidores atrás de proxy reverso.
-
----
-
 ## Etapa 3 — Instalar e Ativar o Novo Tema (`pettec-theme.zip`)
 
 1. No seu PC (dentro da pasta `SitePet`), gere o pacote atualizado com:
