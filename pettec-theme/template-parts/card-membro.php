@@ -28,6 +28,7 @@ $pettec_delay    = ( ( get_the_ID() % 6 ) * 0.45 ) . 's';
 
 $pettec_papel_labels = array(
 	'tutor'     => 'Tutor(a)',
+	'ex-tutor'  => 'Ex-tutor(a)',
 	'membro'    => 'Membro Atual',
 	'ex-membro' => 'Ex-membro',
 );

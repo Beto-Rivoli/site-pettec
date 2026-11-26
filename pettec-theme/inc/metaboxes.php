@@ -208,6 +208,7 @@ function pettec_render_membro_metabox( WP_Post $post ): void {
 			<select name="_pettec_membro_papel" class="widefat">
 				<option value="membro" <?php selected( $papel ? $papel : 'membro', 'membro' ); ?>>Membro Atual</option>
 				<option value="tutor" <?php selected( $papel, 'tutor' ); ?>>Tutor(a)</option>
+				<option value="ex-tutor" <?php selected( $papel, 'ex-tutor' ); ?>>Ex-tutor(a)</option>
 				<option value="ex-membro" <?php selected( $papel, 'ex-membro' ); ?>>Ex-membro (Egresso)</option>
 			</select>
 		</div>
@@ -331,7 +332,7 @@ function pettec_save_metaboxes( int $post_id ): void {
 
 	if ( 'pettec_membro' === $post_type ) {
 		$papel = sanitize_text_field( wp_unslash( $_POST['_pettec_membro_papel'] ?? 'membro' ) );
-		if ( ! in_array( $papel, array( 'tutor', 'membro', 'ex-membro' ), true ) ) {
+		if ( ! in_array( $papel, array( 'tutor', 'ex-tutor', 'membro', 'ex-membro' ), true ) ) {
 			$papel = 'membro';
 		}
 		update_post_meta( $post_id, '_pettec_membro_papel', $papel );

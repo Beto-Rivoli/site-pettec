@@ -47,6 +47,7 @@ $all_members = new WP_Query(
 		<div class="filter-bar" role="group" aria-label="Filtrar por categoria">
 			<button type="button" class="filter-pill is-active" data-filter-key="papel" data-filter-value="all">Todos</button>
 			<button type="button" class="filter-pill" data-filter-key="papel" data-filter-value="tutor">Tutoria</button>
+			<button type="button" class="filter-pill" data-filter-key="papel" data-filter-value="ex-tutor">Ex-tutoria</button>
 			<button type="button" class="filter-pill" data-filter-key="papel" data-filter-value="membro">Membros Atuais</button>
 			<button type="button" class="filter-pill" data-filter-key="papel" data-filter-value="ex-membro">Ex-membros</button>
 		</div>
